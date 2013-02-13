@@ -1,5 +1,5 @@
 === WD Twitter Feed ===
-Contributors: WebDesk
+Contributors: webdesk
 Tags: twitter, tweet, feed, timeline, widget, ajax, customizable
 Requires at least: 3.0
 Tested up to: 3.5.1
