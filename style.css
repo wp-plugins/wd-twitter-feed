@@ -1,6 +1,6 @@
 /*
  *@package name - WD Twitter Feed
- *@package version - 1.0
+ *@package version - 1.0.1
  *@author - Yoav Kadosh
  *@author URI - http://www.webdesk.co.il
  *@author email - yoavks@gmail.com
@@ -61,16 +61,22 @@ div.tweet-wrapper {
 div.tweet-wrapper:hover > ul.tweet-actions {display:block}
 
 /* User card */
+div.user-card {height:32px}
 div.user-card.rtl {margin-right:36px}
 div.user-card.ltr {margin-left:36px}
 div.tweet-wrapper img {position:absolute;border-radius:4px}
 span.user-name {font-weight:bold;font-size:12px;color:black}
-a.screen-name {font-weight:normal;font-size:12px;color:#CCC}
+a.screen-name {font-weight:normal;font-size:12px;color:#CCC;clear:both}
 a.screen-name:hover {color:#AAA;text-decoration:underline}
 a.screen-name:before {white-space: pre;content:"";}
 time {font-weight:normal;font-size:12px;color:#AAA}
-time.ltr {float:right}
-time.rtl {float:left}
+
+div.user-card.rtl > a.screen-name,
+div.user-card.rtl > span.user-name {float:right}
+div.user-card.ltr > a.screen-name,
+div.user-card.ltr > span.user-name {float:left}
+div.user-card.rtl > time {float:left}
+div.user-card.ltr > time {float:right}
 
 /* tweets */
 div.tweet-wrapper p {margin:0;color:#333;font-size:13px;margin:4px 0}

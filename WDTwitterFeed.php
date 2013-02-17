@@ -3,7 +3,7 @@
 Plugin Name: WD Twitter Feed
 Plugin URI: http://www.webdesk.co.il/twitter-feed/
 Description: An AJAXified Twitter feed widget
-Version: 1.0
+Version: 1.0.1
 Author: Yoav Kadosh
 Author URI: http://www.webdesk.co.il/
 Author Email: yoavks@gmail.com
@@ -37,6 +37,9 @@ class WDTwitterFeed extends WP_Widget {
 	protected $textDomain = 'WDTwitterFeed-locale';
 	protected $minHeight = 250;
 	protected $minWidth = 220;
+	protected $apiUrl = 'https://api.twitter.com/1/';
+	protected $timeout = 5;
+	protected $cahceFreq = 60; // Cache frequency to avoid rate limiting
 	private $options; // Holds widget options
 	
 	// Widget defaults
@@ -44,10 +47,11 @@ class WDTwitterFeed extends WP_Widget {
 		'title' => 'My Tweets' ,
 		'show_wrapper' => 'on', 
 		'show_powered_by' => 'on',
+		'replies' => 'on',
+		'retweets' => 'on',
 		'numTweets' => 5 ,
-		'codeBlock' => null ,
-		'minHeight' => 250 ,
-		'minWidth' => 220 
+		'cacheFreq' => 24 ,
+		'codeBlock' => null
 	);
 	
 	/*--------------------------------------------------*/
@@ -89,10 +93,16 @@ class WDTwitterFeed extends WP_Widget {
 		
 		// Fetch options from database
 		$this->options = $this->get_widget_option('widget_'.$this->widgetName);
+		
+		// Check for a user name, and cache if exists
+		if($this->options['user'] && $this->options['cacheFreq'])
+			$this->cacheFeed();
 
 	} // end constructor
 	
-	// Get widget options
+	/*--------------------------------------------------*/
+	/* Get widget options
+	/*--------------------------------------------------*/
 	function get_widget_option($option_name){
 		if(!get_option( $option_name ))
 			return null;
@@ -105,13 +115,128 @@ class WDTwitterFeed extends WP_Widget {
 		
 		return $options;
 	}
-		
-	/*--------------------------------------------------*/
-	/* Widget API Functions
-	/*--------------------------------------------------*/
 	
-	// Create hyperlinks from text
-	function linkifyTweets($tweet, $blank = false) {
+	/*--------------------------------------------------*/
+	/* Get Feed Url
+	/* returns a string with the feed url including the
+	/* required queries
+	/*--------------------------------------------------*/
+	private function getFeedUrl( $type = 'json' ) {
+
+		$req = $this->apiUrl . "statuses/user_timeline.{$type}";
+
+		$req = add_query_arg( array( 'screen_name' => $this->options['user'] ), $req );
+		
+		if ( $this->options['numTweets'] )
+			$req = add_query_arg( array( 'count' => $this->options['numTweets'] ), $req );
+
+		if ( !$this->options['replies'] )
+			$req = add_query_arg( array( 'exclude_replies' => 'true' ), $req );
+
+		if ( $this->options['retweets'] )
+			$req = add_query_arg( array( 'include_rts' => 'true' ), $req );
+
+		return $req;
+	}
+	
+	/*--------------------------------------------------*/
+	/* Fetch Feed
+	/*--------------------------------------------------*/
+	public function fetchFeed() {
+		
+		// Get data
+		$feedUrl = $this->getFeedUrl();
+		$resp = wp_remote_get( $feedUrl, array( 'timeout' => $this->timeout ) );
+		
+		// No error
+		if ( !is_wp_error( $resp ) && $resp['response']['code'] >= 200 && $resp['response']['code'] < 300 ) {
+			return $resp['body'];
+		}
+		
+		// Failed to fetch url;
+		$error = __( 'Could not connect to Twitter', $this->textdomain );
+		throw new Exception( $error );
+	}
+	
+	/*--------------------------------------------------*/
+	/* Parse Feed
+	/* parses the feed and returns the decoded data
+	/* throws an exception for errors
+	/*--------------------------------------------------*/
+	public function parseFeed() {
+
+		// If the user has specified caching frequency, get the cached data
+		if($this->options['cacheFreq'])
+			$decodedResponse = json_decode( get_option('feedCache') );
+		
+		// Otherwise, get data from Twitter
+		else {
+			try {
+				$response = $this->fetchFeed();
+				$decodedResponse = json_decode( $response );
+			}
+			
+			// Failed to fetch url
+			catch(Exception $e) { 
+				$error = $e->getMessage();
+			}
+		}
+		
+		// Error handling
+		if ( empty( $decodedResponse ) || ! is_array( $decodedResponse ) ) {
+			$error = __( 'Invalid Twitter Response', $this->textdomain );
+		} elseif( !empty( $decodedResponse->error ) ) {
+			$error = $decodedResponse->error;
+		} else {
+			return $decodedResponse;
+		}
+
+		// No user was specified - this will override other error messages
+		if(!$this->options['user'])
+			$error = __( 'Please specify a user name in the widget\'s admin panel', $this->textdomain );
+		
+		// Throw an exception
+		throw new Exception( $error );
+	}
+	
+	/*--------------------------------------------------*/
+	/* Cache Feed
+	/* This function caches the timeline feed from twitter.com
+	/* to being rate limited by Twitter. The feed is being recached
+	/* no sooner than 60 seconds. This prevents going over the
+	/* limit of 150 calls per hour
+	/*--------------------------------------------------*/
+	public function cacheFeed() {
+		
+		// Check how much time has passed since the last cache
+		$elapsed = time() - get_option('feedCacheTime');
+				
+		// Retrieve new data if enough time has passed				
+		if($elapsed > $this->options['cacheFreq']) {
+			
+			// Get data
+			try {
+				$resp = $this->fetchFeed();
+				update_option( 'feedCache', $resp );
+			}
+			
+			// Failed to fetch url
+			catch(Exception $e) { 
+				throw new Exception( $e->getMessage() );
+			}
+			
+			// Update last cache time
+			update_option( 'feedCacheTime', time() );
+		}
+	}
+	
+	/* Widget API Functions */
+	
+	/*--------------------------------------------------*/
+	/* Linkify Tweets
+	/* Create hyperlinks from text
+	/*--------------------------------------------------*/
+		function linkifyTweets($tweet, $blank = false) {
 		// Open links in a new window
 		$blank = $blank ? 'target="_blank"' : '';
 		
@@ -139,11 +264,11 @@ class WDTwitterFeed extends WP_Widget {
 		return $tweet;
 	}
 	
-	//--------------------------------------
-	// Create the tweets
-	// $tweets = twitter timeline feed array
-	// $align = blog direction ltr/rtl  
-	//--------------------------------------
+	/*--------------------------------------------------*/
+	/* Create the tweets
+	/* $tweets = twitter timeline feed array
+	/* $align = blog direction ltr/rtl  
+	/*--------------------------------------------------*/
 	function createTweets($tweets, $align) {
 		// Create the tweets
 		foreach($tweets as $tweet) {
@@ -163,7 +288,7 @@ class WDTwitterFeed extends WP_Widget {
 			<div class="tweet-wrapper">
 				<img src="<?php echo $tweet->user->profile_image_url; ?>" width="32" height="32">
 				<div class="user-card <?php echo $align; ?>">
-					<time pubdate="" class="<?php echo $align; ?>" datetime="<?php echo $date->format($date::W3C); ?>" title=""><?php echo date_i18n(get_option('date_format'), $date->getTimestamp()); ?></time>
+					<time pubdate="" datetime="<?php echo $date->format($date->W3C); ?>" title=""><?php echo date_i18n(get_option('date_format'), $date->getTimestamp()); ?></time>
 					<span class="user-name"><?php echo $tweet->user->name; ?></span>
 					<a href="https://twitter.com/<?php echo $user; ?>" target="_blank" class="screen-name" dir="ltr">@<?php echo $tweet->user->screen_name; ?></a>
 				</div>
@@ -186,32 +311,17 @@ class WDTwitterFeed extends WP_Widget {
 	<?php } 
 	}
 	
-	//--------------------------------------
-	// The AJAX callback function
-	//--------------------------------------
+	/*--------------------------------------------------*/
+	/* The AJAX callback function
+	/*--------------------------------------------------*/
 	public function twitterCallback() {
 		
 		$options = $this->options;
 		$align = get_bloginfo('text_direction'); // Align elements by blog direction
-		$height = $options['height'] ? $options['height'] : $this->defaults['minHeight'];
+		$height = $options['height'] ? $options['height'] : $this->minHeight;
 		$overflowHeight = $height - 60;
 		$overflowHeight += $options['show_powered_by'] ? 0 : 15; // Add height if no PoweredBy
-		
-		// Declare content as html for ajax calls
-		header('Content-Type: text/html; charset=utf-8');
-		
-		// Query twitter api to fetch the timeline of a user
-		$data = 'https://api.twitter.com/1/statuses/user_timeline.json?'.
-				'include_entities=true&'.
-				'include_rts=true&'.
-				'screen_name='.$options['user'].
-				'&count='.$options['numTweets'];
-		
-		// Get the JSON data.
-		$data = file_get_contents($data);
-		
-		// Convert the JSON data to PHP format.
-		$tweets = json_decode($data); ?>
+		?>
 		
 		<html dir="<?php echo $align; ?>">
 		<link type="text/css" rel="Stylesheet" href="<?php echo plugins_url('style.css', __FILE__); ?>" />
@@ -222,8 +332,14 @@ class WDTwitterFeed extends WP_Widget {
 			
 			<div class="tweets-overflow" style="height:<?php echo $overflowHeight; ?>px">
 			
-				<?php // Create tweets
-				$this->createTweets($tweets, $align);?>
+			
+				<?php // Create tweets or display an error message
+				try {
+					$this->createTweets( $this->parseFeed() , $align );
+				}
+				catch(Exception $e) {
+					echo '<div class="tweet-wrapper"><p>'.$e->getMessage().'</p></div>';
+				} ?>
 			
 			</div>
 			
@@ -241,7 +357,9 @@ class WDTwitterFeed extends WP_Widget {
 		exit;
 	}
 	
-	// Initiate the callback function
+	/*--------------------------------------------------*/
+	/* Initiate the callback function
+	/*--------------------------------------------------*/
 	public function initAjax() {
 		// Logged in users
 		add_action('wp_ajax_twitterCallback', array($this, 'twitterCallback'));
@@ -249,6 +367,9 @@ class WDTwitterFeed extends WP_Widget {
 		add_action('wp_ajax_nopriv_twitterCallback', array($this, 'twitterCallback'));
 	}
 	
+	/*--------------------------------------------------*/
+	/* The Widget
+	/*--------------------------------------------------*/
 	/**
 	 * Outputs the content of the widget.
 	 *
@@ -288,10 +409,12 @@ class WDTwitterFeed extends WP_Widget {
 		else { 
 			
 			// Load ajax loader and iframe style
-			$this->ajax_loader_style(); ?>
+			$this->ajax_loader_style();
 			
+			/* This holds the ajax loader until the iframe has loaded */ ?>
 			<div id="<?php echo $this->cssClass; ?>-ajax-loader"></div>
 			
+			<?php /* The iframe */ ?>
 			<iframe id="<?php echo $this->cssClass; ?>-iframe" title="Twitter Timeline Widget" ></iframe>		
 
 		<?php }
@@ -311,19 +434,36 @@ class WDTwitterFeed extends WP_Widget {
 
 		$instance = $old_instance;
 		
-		// True for stripping tags and false otherwise
+		// The list of options
 		$options = array(
-			'title' => true,
-			'user' => true,
-			'show_wrapper' => true,
-			'show_powered_by' => true,
-			'numTweets' => true,
-			'height' => true,
-			'codeBlock' => false
+			'title' ,
+			'user' ,
+			'show_wrapper' ,
+			'show_powered_by' ,
+			'replies' ,
+			'retweets' ,
+			'numTweets' ,
+			'height' ,
+			'cacheFreq' ,
+			'codeBlock'
 		);
 		
-		foreach($options as $option => $strip) 
-			$instance[$option] = $strip ? strip_tags( $new_instance[$option] ) : $new_instance[$option];
+		// No tag stripping list
+		$noStrip = array( 'codeBlock' );
+		
+		// Loop through the list of options, strip tags if needed and update
+		foreach($options as $option) {
+			$updated = false;
+			foreach($noStrip as $noStriping) {
+				if($option == $noStriping) {
+					$instance[$option] = $new_instance[$option];
+					$updated = true;
+					break;
+				}
+			}
+			if(!$updated)
+				$instance[$option] = strip_tags( $new_instance[$option] );
+		}
 		
 		return $instance;
 
@@ -364,6 +504,18 @@ class WDTwitterFeed extends WP_Widget {
 			<input class="checkbox" type="checkbox" <?php checked( $instance['show_powered_by'], 'on' ); ?> id="<?php echo $this->get_field_id( 'show_powered_by' ); ?>" name="<?php echo $this->get_field_name( 'show_powered_by' ); ?>" /> 
 			<label for="<?php echo $this->get_field_id( 'show_powered_by' ); ?>"><?php _e('Show "powered by" link (Thanks!)', $this->textDomain); ?></label>
 		</p>
+		
+		<?php /* Show replies */ ?>
+		<p>
+			<input class="checkbox" type="checkbox" <?php checked( $instance['replies'], 'on' ); ?> id="<?php echo $this->get_field_id( 'replies' ); ?>" name="<?php echo $this->get_field_name( 'replies' ); ?>" /> 
+			<label for="<?php echo $this->get_field_id( 'replies' ); ?>"><?php _e('Show replies', $this->textDomain); ?></label>
+		</p>
+		
+		<?php /* Show retweets */ ?>
+		<p>
+			<input class="checkbox" type="checkbox" <?php checked( $instance['retweets'], 'on' ); ?> id="<?php echo $this->get_field_id( 'retweets' ); ?>" name="<?php echo $this->get_field_name( 'retweets' ); ?>" /> 
+			<label for="<?php echo $this->get_field_id( 'retweets' ); ?>"><?php _e('Show retweets', $this->textDomain); ?></label>
+		</p>
 		    	
     	<?php /* Number of tweets */ ?>
 		<p>
@@ -375,9 +527,18 @@ class WDTwitterFeed extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id( 'height' ); ?>">
 				<?php _e('Height (optional):', $this->textDomain); ?>
-				<a href="#" class="tooltip" data-tip="If left blank, the widget will assume the default height (<?php echo $this->defaults['minHeight']; ?>px). Otherwise, the given height will be used and the content will become scrollable">(?)</a>
+				<a href="#" class="tooltip" data-tip="If left blank, the widget will assume the default height (<?php echo $this->minHeight; ?>px). Otherwise, the given height will be used and the content will become scrollable">(?)</a>
 			</label>
 			<input id="<?php echo $this->get_field_id( 'height' ); ?>" name="<?php echo $this->get_field_name( 'height' ); ?>" type="text" value="<?php echo $instance['height']; ?>" class="widefat" />
+		</p>
+		
+		<?php /* Caching frequency */ ?>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'cacheFreq' ); ?>">
+				<?php _e('Caching frequency (optional):', $this->textDomain); ?>
+				<a href="#" class="tooltip" data-tip="Use this to specify the caching frequency (in seconds) to avoid Twitter rate limits. If left blank, no caching will occur">(?)</a>
+			</label>
+			<input id="<?php echo $this->get_field_id( 'cacheFreq' ); ?>" name="<?php echo $this->get_field_name( 'cacheFreq' ); ?>" type="text" value="<?php echo $instance['cacheFreq']; ?>" class="widefat" />
 		</p>
 		
 		<?php /* Twitter.com code block */ ?>
@@ -424,7 +585,9 @@ class WDTwitterFeed extends WP_Widget {
 	 */
 	public function deactivate( $network_wide ) {
 		// This will remove the db saved options
-		delete_option( 'widget_'.$this->widgetName );		
+		delete_option( 'widget_'.$this->widgetName );
+		delete_option( 'feedCache' );
+		delete_option( 'feedCacheTime' );	
 	} // end deactivate
 
 	/**
@@ -454,9 +617,9 @@ class WDTwitterFeed extends WP_Widget {
 
 	} // end register_widget_styles
 	
-	//--------------------------------------
-	// Ajax loader and iframe style
-	//--------------------------------------
+	/*--------------------------------------------------*/
+	/* Ajax loader and iframe style
+	/*--------------------------------------------------*/
 	public function ajax_loader_style() { ?>
 	<style>
 		/* hide iframe before loading */
@@ -464,7 +627,7 @@ class WDTwitterFeed extends WP_Widget {
 		
 		/* Ajax loader */
 		div#wdtf-ajax-loader {
-			width: 100%;height:100px;min-width:<?php echo $this->defaults['minWidth']; ?>px;
+			width: 100%;height:100px;min-width:<?php echo $this->minWidth; ?>px;
 			background: rgb(48,223,241) url("<?php echo plugins_url( 'images/ajax-loader.gif' , __FILE__) ?>") no-repeat center;
 			margin: 30px auto;
 			
@@ -490,8 +653,8 @@ class WDTwitterFeed extends WP_Widget {
 		// Localize the script
 		$options = $this->options;
 		$options['src'] = admin_url('admin-ajax.php').'?action=twitterCallback';
-		$options['minWidth'] = $this->defaults['minWidth'];
-		$options['minHeight'] = $this->defaults['minHeight'];
+		$options['minWidth'] = $this->minWidth;
+		$options['minHeight'] = $this->minHeight;
 		wp_localize_script($this->widgetName.'-loader' , $this->cssClass.'_loader_options' , $options);
 		
 	} // end register_widget_scripts

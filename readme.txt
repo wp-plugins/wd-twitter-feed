@@ -3,7 +3,7 @@ Contributors: webdesk
 Tags: twitter, tweet, feed, timeline, widget, ajax, customizable
 Requires at least: 3.0
 Tested up to: 3.5.1
-Stable tag: 1.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -19,6 +19,7 @@ Feature List:
 1. Graphically attractive, easily customizable, various styles are available
 1. Very simple to setup
 1. Specifically designed to work with both "ltr" and "rtl" languages (see screenshots)
+1. Allows data caching to avoid Twitter rate limits
 
 Follow me on twitter to be updated on new versions and releases
 [@YoavKadosh](http://www.twitter.com/webdeskil)
@@ -57,7 +58,16 @@ That's a hard one, i'll have to get back to you on that.
 
 == Changelog ==
 
+= 1.0.1 =
+* New feature - feed caching to avoid Twitter rate limiting
+* Improved error handling
+* Minor CSS fixes 
+* Fixed bug - T_PAAMAYIM_NEKUDOTAYIM
+
 = 1.0 =
 * Initial plugin release
 
 == Upgrade Notice ==
+
+= 1.0.1 =
+* Improved error handling and caching, minor bug fixes
