@@ -222,7 +222,7 @@ class WDTwitterFeed extends WP_Widget {
 			
 			// Failed to fetch url
 			catch(Exception $e) { 
-				throw new Exception( $e->getMessage() );
+				update_option( 'feedCache', $e->getMessage() );
 			}
 			
 			// Update last cache time
