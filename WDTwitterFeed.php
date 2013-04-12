@@ -3,7 +3,7 @@
 Plugin Name: WD Twitter Feed
 Plugin URI: http://www.webdesk.co.il/twitter-feed/
 Description: An AJAXified Twitter feed widget
-Version: 1.0.1
+Version: 1.1.0
 Author: Yoav Kadosh
 Author URI: http://www.webdesk.co.il/
 Author Email: yoavks@gmail.com
@@ -45,6 +45,8 @@ class WDTwitterFeed extends WP_Widget {
 	// Widget defaults
 	private $defaults = array(
 		'title' => 'My Tweets' ,
+		'titleColor' => '#1b90ad' ,
+		'bodyColor' => '#1ea9cc' ,
 		'show_wrapper' => 'on', 
 		'show_powered_by' => 'on',
 		'replies' => 'on',
@@ -270,6 +272,10 @@ class WDTwitterFeed extends WP_Widget {
 	/* $align = blog direction ltr/rtl  
 	/*--------------------------------------------------*/
 	function createTweets($tweets, $align) {
+		
+		// for tree-style
+		$right = false;
+		
 		// Create the tweets
 		foreach($tweets as $tweet) {
 			
@@ -285,12 +291,20 @@ class WDTwitterFeed extends WP_Widget {
 			$date = new DateTime($tweet->created_at);
 			
 			/* The tweet */ ?>
-			<div class="tweet-wrapper">
-				<img src="<?php echo $tweet->user->profile_image_url; ?>" width="32" height="32">
+			<div class="tweet-wrapper <?php echo $right ? "tweet-right" : "tweet-left"?>">
+				
+				<?php /* Time */ ?>
+				<time class="<?php echo $align; ?>" pubdate="" datetime="<?php echo $date->format($date->W3C); ?>" title="">
+					<?php echo date_i18n(get_option('date_format'), $date->getTimestamp()); ?>
+				</time>
+				
+				<?php /* User Card */ ?>
 				<div class="user-card <?php echo $align; ?>">
-					<time pubdate="" datetime="<?php echo $date->format($date->W3C); ?>" title=""><?php echo date_i18n(get_option('date_format'), $date->getTimestamp()); ?></time>
-					<span class="user-name"><?php echo $tweet->user->name; ?></span>
-					<a href="https://twitter.com/<?php echo $user; ?>" target="_blank" class="screen-name" dir="ltr">@<?php echo $tweet->user->screen_name; ?></a>
+					<img src="<?php echo $tweet->user->profile_image_url; ?>" width="32" height="32">
+					<div class="screen-name">
+						<span><?php echo $tweet->user->name; ?></span><br />
+						<a href="https://twitter.com/<?php echo $tweet->user->screen_name; ?>" target="_blank" dir="ltr">@<?php echo $tweet->user->screen_name; ?></a>
+					</div>
 				</div>
 				
 				<?php /* Tweet text */ ?>
@@ -308,7 +322,10 @@ class WDTwitterFeed extends WP_Widget {
 					<li><a href="https://twitter.com/intent/favorite?tweet_id=<?php echo $tweet->id_str; ?>" class="favorite-action web-intent" title="<?php _e('favorite', $this->textdomain); ?>"></a></li>
 				</ul>
 			</div>
-	<?php } 
+	<?php 
+			// for tree-style
+			$right = $right ? false : true;
+		} 
 	}
 	
 	/*--------------------------------------------------*/
@@ -324,11 +341,12 @@ class WDTwitterFeed extends WP_Widget {
 		?>
 		
 		<html dir="<?php echo $align; ?>">
-		<link type="text/css" rel="Stylesheet" href="<?php echo plugins_url('style.css', __FILE__); ?>" />
+		<link type="text/css" rel="Stylesheet" href="<?php echo plugins_url('css/core.css', __FILE__); ?>" />
+		<link type="text/css" rel="Stylesheet" href="<?php echo plugins_url('css/default-style.css', __FILE__); ?>" />
 		<script src="<?php echo plugins_url('script.js', __FILE__); ?>"></script>
 		
-		<div class="wrapper">
-			<h1><i></i><?php echo $options['title']; ?></h1>
+		<div class="wrapper" id="wrapper" style="background-color:<?php echo $options['bodyColor']; ?>">
+			<h1 style="color:<?php echo $options['titleColor']; ?>"><i></i><?php echo $options['title']; ?></h1>
 			
 			<div class="tweets-overflow" style="height:<?php echo $overflowHeight; ?>px">
 			
@@ -342,9 +360,6 @@ class WDTwitterFeed extends WP_Widget {
 				} ?>
 			
 			</div>
-			
-			<?php /* Create gradient for custom height */ ?>
-			<div class="gradient"></div>
 			
 			<?php /* Powered by link */ 
 			if($options['show_powered_by']) { ?>
@@ -437,6 +452,8 @@ class WDTwitterFeed extends WP_Widget {
 		// The list of options
 		$options = array(
 			'title' ,
+			'titleColor' ,
+			'bodyColor' ,
 			'user' ,
 			'show_wrapper' ,
 			'show_powered_by' ,
@@ -520,25 +537,37 @@ class WDTwitterFeed extends WP_Widget {
     	<?php /* Number of tweets */ ?>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'numTweets' ); ?>"><?php _e('Number of tweets:', $this->textDomain); ?></label>
-			<input id="<?php echo $this->get_field_id( 'numTweets' ); ?>" name="<?php echo $this->get_field_name( 'numTweets' ); ?>" type="text" value="<?php echo $instance['numTweets']; ?>" class="widefat" />
+			<input id="<?php echo $this->get_field_id( 'numTweets' ); ?>" name="<?php echo $this->get_field_name( 'numTweets' ); ?>" type="number" min="1" max="1000" step="1" value="<?php echo $instance['numTweets']; ?>" class="small-text widefat alignright" />
 		</p>
 		
-		<?php /* Max height */ ?>
+		<?php /* Height */ ?>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'height' ); ?>">
 				<?php _e('Height (optional):', $this->textDomain); ?>
 				<a href="#" class="tooltip" data-tip="If left blank, the widget will assume the default height (<?php echo $this->minHeight; ?>px). Otherwise, the given height will be used and the content will become scrollable">(?)</a>
 			</label>
-			<input id="<?php echo $this->get_field_id( 'height' ); ?>" name="<?php echo $this->get_field_name( 'height' ); ?>" type="text" value="<?php echo $instance['height']; ?>" class="widefat" />
+			<input id="<?php echo $this->get_field_id( 'height' ); ?>" name="<?php echo $this->get_field_name( 'height' ); ?>" type="number" min="250" max="1024" step="1" value="<?php echo $instance['height']; ?>" class="small-text widefat alignright" />
 		</p>
 		
 		<?php /* Caching frequency */ ?>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'cacheFreq' ); ?>">
-				<?php _e('Caching frequency (optional):', $this->textDomain); ?>
+				<?php _e('Caching freq. (optional):', $this->textDomain); ?>
 				<a href="#" class="tooltip" data-tip="Use this to specify the caching frequency (in seconds) to avoid Twitter rate limits. If left blank, no caching will occur">(?)</a>
 			</label>
-			<input id="<?php echo $this->get_field_id( 'cacheFreq' ); ?>" name="<?php echo $this->get_field_name( 'cacheFreq' ); ?>" type="text" value="<?php echo $instance['cacheFreq']; ?>" class="widefat" />
+			<input id="<?php echo $this->get_field_id( 'cacheFreq' ); ?>" name="<?php echo $this->get_field_name( 'cacheFreq' ); ?>" type="number" min="24" max="1024" step="2" value="<?php echo $instance['cacheFreq']; ?>" class="small-text widefat alignright" />
+		</p>
+		
+		<?php /* Title Color Selector */ ?>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'titleColor' ); ?>"><?php _e('Title Color', $this->textDomain); ?></label><br />
+			<input id="<?php echo $this->get_field_id( 'titleColor' ); ?>" name="<?php echo $this->get_field_name( 'titleColor' ); ?>" type="text" value="<?php echo $instance['titleColor']; ?>" class="wd-color-field widefat" data-default-color="#ffffff" />
+		</p>
+		
+		<?php /* Body Color Selector */ ?>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'bodyColor' ); ?>"><?php _e('Body Color', $this->textDomain); ?></label><br />
+			<input id="<?php echo $this->get_field_id( 'bodyColor' ); ?>" name="<?php echo $this->get_field_name( 'bodyColor' ); ?>" type="text" value="<?php echo $instance['bodyColor']; ?>" class="wd-color-field widefat" data-default-color="<?php echo $instance['bodyColor']; ?>" />
 		</p>
 		
 		<?php /* Twitter.com code block */ ?>
@@ -549,6 +578,7 @@ class WDTwitterFeed extends WP_Widget {
 			</label>
 			<textarea dir="ltr" id="<?php echo $this->get_field_id( 'codeBlock' ); ?>" name="<?php echo $this->get_field_name( 'codeBlock' ); ?>" class="widefat" ><?php echo $instance['codeBlock']; ?></textarea>
 		</p>
+				
 		</div>
 				
 	<?php
@@ -595,8 +625,10 @@ class WDTwitterFeed extends WP_Widget {
 	 */
 	public function register_admin_styles() {
 
-		wp_enqueue_style( $this->widgetName.'-admin-styles', plugins_url( 'admin.css', __FILE__ ) );
-
+		wp_enqueue_style( $this->widgetName.'-admin-styles', plugins_url( 'css/admin.css', __FILE__ ) );
+		// Color picker style
+		wp_enqueue_style( 'wp-color-picker' );
+		
 	} // end register_admin_styles
 
 	/**
@@ -604,8 +636,9 @@ class WDTwitterFeed extends WP_Widget {
 	 */	
 	public function register_admin_scripts() {
 
-		wp_enqueue_script( $this->widgetName.'-admin-script', plugins_url( 'admin.js', __FILE__ ) );
-
+		// Color picker script (and admin script)
+    	wp_enqueue_script( $this->widgetName.'-admin-script-color', plugins_url('admin.js', __FILE__ ), array( 'wp-color-picker' ), false, true );
+		
 	} // end register_admin_scripts
 
 	/**
@@ -627,8 +660,8 @@ class WDTwitterFeed extends WP_Widget {
 		
 		/* Ajax loader */
 		div#wdtf-ajax-loader {
-			width: 100%;height:100px;min-width:<?php echo $this->minWidth; ?>px;
-			background: rgb(48,223,241) url("<?php echo plugins_url( 'images/ajax-loader.gif' , __FILE__) ?>") no-repeat center;
+			width: 100%;height:173px;min-width:<?php echo $this->minWidth; ?>px;
+			background: url("<?php echo plugins_url( 'images/TwitterLoader.png' , __FILE__) ?>") no-repeat center;
 			margin: 30px auto;
 			
 			border-radius: 4px;

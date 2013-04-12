@@ -1,0 +1,32 @@
+/* Twitter feed wrapper */
+div.wrapper {
+	background-color:rgb(48,223,241);
+	padding:5px 2px;
+	border-radius: 6px;
+	border-top:2px solid rgba(255,255,255,0.8);
+	border-bottom:2px solid rgba(0,0,0,0.2);
+	border-right:2px solid rgba(200,200,200,0.5);
+	border-left:2px solid rgba(200,200,200,0.5);
+	position:absolute;top:0;bottom:0;right:0;left:0;
+}
+div.wrapper h1 {
+	height:26px;
+	font-size:22px;
+	line-height:26px;
+	margin:0 0 3px;padding:0;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
+div.wrapper h1 i {width:29px;height:21px;display:inline-block;background-position:-17px 0px;vertical-align:middle;margin:0 6px}
+
+div.tweets-overflow {overflow-y:scroll;padding:0 4px 5px;margin:0 -4px;}
+
+/* Powered by link */
+p.poweredBy {
+	font: bold 12px/15px Trebuchet MS,Liberation Sans,DejaVu Sans,sans-serif;
+	margin: 0 5px;
+	text-align: right;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+	color:rgba(0,0,0,0.4);
+}
+p.poweredBy a {font-style: italic;color:rgba(0,0,0,0.4);text-decoration:none}
+p.poweredBy a:hover {color:rgba(0,0,0,0.6);}
