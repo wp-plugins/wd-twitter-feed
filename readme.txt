@@ -21,10 +21,13 @@ Feature List:
 1. Specifically designed to work with both "ltr" and "rtl" languages (see screenshots)
 1. Allows data caching to avoid Twitter rate limits
 
-Follow me on twitter to be updated on new versions and releases
+Follow me on twitter to be updated on new versions and releases: 
 [@YoavKadosh](http://www.twitter.com/webdeskil)
 
-Visit my website for more information about the plugin (written in hebrew)
+Contribute to this widget via 
+[GitHub](https://github.com/webdesk/wd-twitter-feed)
+
+Visit my website for more information about the plugin (written in hebrew): 
 [WebDesk.co.il](http://webdesk.co.il/)
 
 == Installation ==
