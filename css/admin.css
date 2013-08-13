@@ -28,3 +28,16 @@ a.tooltip:hover::before {
 	opacity: 1;
 	bottom: -35px;
 }
+
+/* username validator */
+input[type=text].user-validator {
+	user-select: none;
+}
+input[type=text].user-validator-valid {
+	background-color:#99FFAC;
+	color:#2C823C;
+}
+input[type=text].user-validator-invalid {
+	background-color:#ff9988;
+	color:#660011;
+}

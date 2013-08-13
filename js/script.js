@@ -1,7 +1,10 @@
 var popUpWidth = 450;
 var popUpHeight = 450;
 
-window.onload = function() {	
+window.onload = function() {
+
+	//parent.resizeIframe( getHeight( 'wrapper' )/2 );
+	
 	
 	// Get all anchors
 	var links = document.getElementsByTagName("a"); 
