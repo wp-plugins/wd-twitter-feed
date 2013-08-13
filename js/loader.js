@@ -20,3 +20,8 @@ jQuery(document).ready(function ($) {
 		$(this).css('display' , 'block');
 	});
 });
+/*
+function resizeIframe(newHeight) {
+	alert("newHeight = " + newHeight);
+    document.getElementById('wdtf-iframe').style.height = parseInt(newHeight) + 'px';
+}*/
