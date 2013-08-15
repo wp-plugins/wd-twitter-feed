@@ -250,7 +250,7 @@ class WDTwitterFeed extends WP_Widget {
 			$errors = 'Please specify a screen name in the widget panel.';
 		
 		// No credentials
-		if(!$this->tokens)
+		if(!$this->tokens || !get_option('twitterFeedTokens'))
 			$errors = 'Please specify the oAuth credentials in the widget panel.';
 		
 		// Fetch the feed and check for errors
