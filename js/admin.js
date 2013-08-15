@@ -1,12 +1,14 @@
 jQuery(document).ready(function ($) {
 	
-	var timer; // Holds the timeOut
+	var timer, // Holds the timeOut
+		lastResult;
 	
-	// rebind color-picker after widget save
-	$('#widgets-right').livequery(function() {
-		$('.wd-color-field').wpColorPicker();
-	}).ajaxComplete(function() {
-		$('.wd-color-field').wpColorPicker();
+	// Initiate 
+	init();
+	
+	// rebind initiation after widget save
+	$('div[id*=wdtwitterfeed]').on('ajaxComplete', function() {
+		init();
 	});
 	
 	// User validation
@@ -47,11 +49,25 @@ jQuery(document).ready(function ($) {
 			url: wdtf_options.url,
 			data: { screen_name: name },
 			success: function(data) {
-				$('.user-validator')
-					.val(data.data)
-					.removeClass('user-validator-valid user-validator-invalid')
-					.addClass(data.class);
+				setValidatorTo( data );
+				lastResult = data;
 			}
 		});
+	}
+	
+	function setValidatorTo( obj ) {
+		$('.user-validator')
+			.val(obj.data)
+			.removeClass('user-validator-valid user-validator-invalid')
+			.addClass(obj.class);
+	}
+	
+	function init() {
+		// Bind the color picker
+		$('.wd-color-field').wpColorPicker();
+		
+		// Set the validator to the last result
+		if( lastResult )
+			setValidatorTo( lastResult );
 	}
 });
