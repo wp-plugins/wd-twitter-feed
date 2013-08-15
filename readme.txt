@@ -7,7 +7,7 @@ Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A simple and powerful Twitter feed widget.
+A simple yet powerful Twitter feed widget.
 
 == Description ==
 
