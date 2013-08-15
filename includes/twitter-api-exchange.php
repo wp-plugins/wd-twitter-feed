@@ -1,12 +1,4 @@
 <?php
-/*
-Plugin Name: Twitter Feeds
-Plugin URI: http://www.wpreads.com
-Description: This Plugin will fetch Twitter Account feeds for Twitter feeds API 1.1
-Author: Contributed
-Version: 1.6
-Author URI: http://www.wpreads.com
-*/
 class TwitterAPIExchange 
 {
     private $oauth_access_token;
