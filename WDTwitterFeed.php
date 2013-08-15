@@ -2,7 +2,7 @@
 /*
 Plugin Name: WD Twitter Feed
 Plugin URI: http://www.webdesk.co.il/twitter-feed/
-Description: A simple and powerful Twitter feed widget.
+Description: A simple yet powerful Twitter feed widget.
 Version: 1.2.0
 Author: Yoav Kadosh
 Author URI: http://www.webdesk.co.il/
@@ -247,12 +247,16 @@ class WDTwitterFeed extends WP_Widget {
 	function displayTweets() {
 		
 		// No user was specified - bail early and throw an error
-		if(!$this->options['user'])
-			$errors = 'Please specify a screen name in the widget panel.';
+		if(!$this->options['user']) {
+			$this->showError( 'Please specify a screen name in the widget panel.' );
+			return;
+		}
 		
 		// No credentials
-		if(!$this->tokens)
-			$errors = 'Please specify the oAuth credentials in the widget panel.';
+		if(!$this->tokens) {
+			$this->showError( 'Please specify the oAuth credentials in the widget panel.' );
+			return;
+		}
 		
 		// Fetch the feed and check for errors
 		$tweets = $this->fetchFeed();
@@ -263,16 +267,9 @@ class WDTwitterFeed extends WP_Widget {
 				$errors = $error->message . '<br />';
 				$errors .= 'Code: ' . $error->code . '<br />';
 			}
-		}
-		
-		// Display errors if neccessary
-		if($errors) {
-			echo '<div class="wdtf-wrapper">';
-			echo $errors;
-			echo '</div>';
+			$this->showError( $errors );
 			return;
-		}
-						
+		}				
 		
 		// Continue with displaying tweets
 		$align = get_bloginfo('text_direction'); // Align elements by blog direction
@@ -332,6 +329,14 @@ class WDTwitterFeed extends WP_Widget {
 		} // End foreach
 		echo '</div>';
 	} // End displayTweets
+	
+	
+	// Show error message 
+	public function showError( $error ) {
+		echo '<div class="wdtf-wrapper">';
+		echo $error;
+		echo '</div>';
+	}
 
 	/*--------------------------------------------------*/
 	/* Outputs the content of the widget.
