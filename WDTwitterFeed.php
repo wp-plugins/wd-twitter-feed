@@ -38,7 +38,8 @@ class WDTwitterFeed extends WP_Widget {
 	protected $minHeight = 250;
 	protected $minWidth = 220;
 	protected $apiUrl = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
-	protected $tokens = 'twitterFeedTokens'; // Used as the option's field name 
+	protected $tokensOptionName = 'twitterFeedTokens';
+	protected $tokens;
 	protected $timeout = 5;
 	private $options; // Holds widget options
 	
@@ -100,7 +101,7 @@ class WDTwitterFeed extends WP_Widget {
 		
 		// Fetch options and access tokens from database
 		$this->options = $this->get_widget_option('widget_'.$this->widgetName);
-		$this->tokens = get_option( $this->tokens );
+		$this->tokens = get_option( $this->tokensOptionName );
 
 	} // end constructor
 	
@@ -250,7 +251,7 @@ class WDTwitterFeed extends WP_Widget {
 			$errors = 'Please specify a screen name in the widget panel.';
 		
 		// No credentials
-		if(!$this->tokens || !get_option('twitterFeedTokens'))
+		if(!$this->tokens)
 			$errors = 'Please specify the oAuth credentials in the widget panel.';
 		
 		// Fetch the feed and check for errors
