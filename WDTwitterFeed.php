@@ -72,8 +72,8 @@ class WDTwitterFeed extends WP_Widget {
 	public function __construct() {
 		
 		// Load neccessary files
-		require_once('twitter-api-exchange.php');
-		require_once('admin-menu.php');
+		require_once('includes/twitter-api-exchange.php');
+		require_once('includes/admin-menu.php');
 			
 		// load plugin text domain
 		add_action( 'init', array( $this, 'widget_textdomain' ) );
