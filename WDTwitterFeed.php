@@ -576,7 +576,6 @@ class WDTwitterFeed extends WP_Widget {
 	
 		// Load jQuery
 		wp_enqueue_script('jquery');
-		wp_enqueue_script( $this->widgetName.'-loader', plugins_url('js/loader.js', __FILE__ ), array( 'jquery' ), false, true );
 		wp_enqueue_script( $this->widgetName.'-script', plugins_url('js/script.js', __FILE__ ), array( 'jquery' ), false, true );
 		
 	} // end register_widget_scripts
