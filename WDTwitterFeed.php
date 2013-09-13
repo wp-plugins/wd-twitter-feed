@@ -3,7 +3,7 @@
 Plugin Name: WD Twitter Feed
 Plugin URI: http://www.webdesk.co.il/twitter-feed/
 Description: A simple yet powerful Twitter feed widget.
-Version: 1.2.0
+Version: 1.2.1
 Author: Yoav Kadosh
 Author URI: http://www.webdesk.co.il/
 Author Email: yoavks@gmail.com
