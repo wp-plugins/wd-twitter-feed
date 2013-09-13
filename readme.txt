@@ -60,6 +60,10 @@ That's a hard one, i'll have to get back to you on that.
 
 == Changelog ==
 
+= 1.2.1 =
+* Filesystem cleanup
+* Minor bug fixes
+
 = 1.2.0 =
 * Added support for the new Twitter API 1.1
 * New feature - live username verification
@@ -81,6 +85,9 @@ That's a hard one, i'll have to get back to you on that.
 * Initial plugin release
 
 == Upgrade Notice ==
+
+= 1.2.1 =
+* Filesystem cleanup, minor bug fixes
 
 = 1.2.0 =
 * Added support for the new Twitter API 1.1
