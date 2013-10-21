@@ -20,12 +20,13 @@ Feature List:
 1. Allows data caching to avoid Twitter rate limits (180 per hour, using oAuth)
 1. Graphically attractive, easily customizable, various styles are available
 1. Very simple to setup
+1. Hello World
 
 
 Follow me on twitter to be updated on new versions and releases
 [@YoavKadosh](http://www.twitter.com/webdeskil)
 
-Visit my website for more information about the plugin (written in hebrew)
+Visit my website for more information about the plugin (written in Hebrew)
 [WebDesk.co.il](http://webdesk.co.il/)
 
 == Installation ==
