@@ -20,7 +20,6 @@ Feature List:
 1. Allows data caching to avoid Twitter rate limits (180 per hour, using oAuth)
 1. Graphically attractive, easily customizable, various styles are available
 1. Very simple to setup
-1. Hello World
 
 
 Follow me on twitter to be updated on new versions and releases
