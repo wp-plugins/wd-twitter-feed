@@ -14,8 +14,7 @@ A simple yet powerful Twitter feed widget.
 Integrate an amazing **Twitter Feed Widget** to your widget's sidebar! This plugin supports the new Twitter API 1.1
 
 Try our commercial version of the product which features 6 different twitter resources (including lists and search), 5 different skins and 3 different shortcodes!
-<a href=“http://codecanyon.net/item/twitter-feed-social-plugin-for-wordpress/6665168?ref=Askupa”>Askupa Twitter Feed</a>
-<a href=“http://codecanyon.net/item/twitter-feed-social-plugin-for-wordpress/6665168?ref=Askupa”><img src="http://askupasoftware.com/wp-content/uploads/2014/02/box.png" alt="Askupa Software Twitter Feed plugin for WordPress"></a>
+[Askupa Twitter Feed](http://codecanyon.net/item/twitter-feed-social-plugin-for-wordpress/6665168?ref=Askupa)
 
 Feature List:
 
