@@ -1,5 +1,5 @@
 === WD Twitter Feed ===
-Contributors: webdesk
+Contributors: Askupa Software
 Tags: twitter, tweet, tweets, feed, timeline, widget, ajax, customizable, comments, social, social media
 Requires at least: 3.0
 Tested up to: 3.5.1
