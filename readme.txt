@@ -2,16 +2,16 @@
 Contributors: Askupa Software
 Tags: twitter, tweet, tweets, feed, timeline, widget, ajax, customizable, comments, social, social media
 Requires at least: 3.0
-Tested up to: 3.5.1
+Tested up to: 3.8.0
 Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A simple yet powerful Twitter feed widget.
+Powerful Twitter Integration System for WordPress
 
 == Description ==
 
-Integrate an amazing **Twitter Feed Widget** to your widget's sidebar! This plugin supports the new Twitter API 1.1
+Twitter Feed plugin for WordPress allows you to easily display Twitter user timelines in a wide variety of ways, using the included *shortcode engine* and *widget*. The included skins are fully responsive. The plugin has the option of caching twitter data to improve the performance of the plugin.
 
 Try our commercial version of the product which features 6 different twitter resources (including lists and search), 5 different skins and 3 different shortcodes!
 [Askupa Twitter Feed](http://codecanyon.net/item/twitter-feed-social-plugin-for-wordpress/6665168?ref=Askupa)
@@ -19,40 +19,40 @@ Try our commercial version of the product which features 6 different twitter res
 
 Feature List:
 
-1. Supports the new Twitter API 1.1
-1. Specifically designed to work with both "ltr" and "rtl" languages (see screenshots)
-1. Allows data caching to avoid Twitter rate limits (180 per hour, using oAuth)
-1. Graphically attractive, easily customizable, various styles are available
+1. Twitter API 1.1
+1. Shortcodes + shortcode editor
+1. Widget
+1. LTR and RTL supoprt
+1. Powerful Caching system
+1. Tweet customization
+1. Tweet actions
+1. 100% responsive
+1. Illustrated step-by-step guide
+1. Clean & simple plugin options page
 1. Very simple to setup
 
+Follow us on [Twitter](http://www.twitter.com/askupasoftware) and on [Facebook](http://www.facebook.com/askupasoftware)to get the latest updates and version releases.
 
-Follow me on twitter to be updated on new versions and releases
-[@YoavKadosh](http://www.twitter.com/webdeskil)
-
-Visit my website for more information about the plugin (written in Hebrew)
-[WebDesk.co.il](http://webdesk.co.il/)
+Visit the official [Twitter Feed](http://products.askupasoftware.com/twitter-feed/) page for live examples, code snippets and more information.
 
 == Installation ==
 
 1. Download the plugin zip package and extract it.
-1. Put the folder named "wd-twitter-feed" under /wp-content/plugins/ directory
+1. Put the folder named “askupa-twitter-feed" under /wp-content/plugins/ directory
 1. Goto the plugins page in your Wordpress admin panel and click "Activate"
-1. Goto Settings -> Twitter Feed Tokens and enter your oAuth credentials (you would need to create a new application at https://dev.twitter.com/apps)
-1. Goto your widget area (Appearance -> widgets) and add *WD Twitter Feed* to your widget panel
+1. Goto Plugins -> Twitter Feed and enter your oAuth credentials (you would need to create a new application at https://dev.twitter.com/apps)
+1. You can implements tweets into your posts and pages using shortcodes or you can go to your widget area (Appearance -> widgets) and add *Twitter Feed* to your widget panel
 
 == Frequently Asked Questions ==
 
-= What happens if I leave the caching frequency field blank? =
+= Why do I need to enable caching? =
 
-The  widget will make a request to the Twitter API every time you refresh the page. This is not recommended since Twitter imposes a limit of 180 requests per hour - exceeding the limit would prevent you from making new requests until the clock is reset.
+Twitter Feed makes a request to the Twitter API every time someone views a page in your blog. This creates a problem since Twitter imposes a limit of 180 requests per hour. exceeding the limit would prevent you from making new requests until the clock is reset.
+The caching system allows you to fetch the data locally, which not only will prevent you from exceeding the rate limits, but is also much faster than making a request to Twitter.
 
 = Where can I update the settings? / I can't find the plugin settings =
 
-In order to update the settings of the widget, you'll need to login to your Wordpress admin panel and navigate to *Appearance -> Widgets* then choose *WD Twitter Feed* and drag it to the sidebar that you want to use it on.
-
-= What about foo bar? =
-
-That's a hard one, i'll have to get back to you on that.
+In order to update the settings of the widget, you'll need to login to your Wordpress admin panel and navigate to *Plugins -> Twitter Feed* where you will find a complete options page for the plugin.
 
 == Screenshots ==
 
