@@ -11,11 +11,13 @@ Powerful Twitter Integration System for WordPress
 
 == Description ==
 
-Twitter Feed plugin for WordPress allows you to easily display Twitter user timelines in a wide variety of ways, using the included *shortcode engine* and *widget*. The included skins are fully responsive. The plugin has the option of caching twitter data to improve the performance of the plugin.
+**Twitter Feed** plugin for WordPress allows you to easily display Twitter user timelines in a wide variety of ways, using the included *shortcode engine* and *widget*. The included skins are fully responsive. The plugin has the option of caching tweets to improve the performance of the plugin.
 
-Try our commercial version of the product which features 6 different twitter resources (including lists and search), 5 different skins and 3 different shortcodes!
-[Askupa Twitter Feed](http://codecanyon.net/item/twitter-feed-social-plugin-for-wordpress/6665168?ref=Askupa)
-![Askupa Software Twitter Feed plugin for WordPress](http://askupasoftware.com/wp-content/uploads/2014/02/box.png)
+Visit the official [Twitter Feed](http://products.askupasoftware.com/twitter-feed/) page for live examples, code snippets and more information.
+
+Follow us on [Twitter](http://www.twitter.com/askupasoftware) and on [Facebook](http://www.facebook.com/askupasoftware) to get the latest updates and version releases.
+
+Try the [commercial version](http://codecanyon.net/item/twitter-feed-social-plugin-for-wordpress/6665168?ref=Askupa) of Twitter Feed that features 6 different twitter resources (including lists and search), 5 different skins and 3 different shortcodes!
 
 Feature List:
 
@@ -31,14 +33,10 @@ Feature List:
 1. Clean & simple plugin options page
 1. Very simple to setup
 
-Follow us on [Twitter](http://www.twitter.com/askupasoftware) and on [Facebook](http://www.facebook.com/askupasoftware)to get the latest updates and version releases.
-
-Visit the official [Twitter Feed](http://products.askupasoftware.com/twitter-feed/) page for live examples, code snippets and more information.
-
 == Installation ==
 
 1. Download the plugin zip package and extract it.
-1. Put the folder named “askupa-twitter-feed" under /wp-content/plugins/ directory
+1. Put the folder named ???askupa-twitter-feed" under /wp-content/plugins/ directory
 1. Goto the plugins page in your Wordpress admin panel and click "Activate"
 1. Goto Plugins -> Twitter Feed and enter your oAuth credentials (you would need to create a new application at https://dev.twitter.com/apps)
 1. You can implements tweets into your posts and pages using shortcodes or you can go to your widget area (Appearance -> widgets) and add *Twitter Feed* to your widget panel
