@@ -101,3 +101,4 @@ That's a hard one, i'll have to get back to you on that.
 
 = 1.0.1 =
 * Improved error handling and caching, minor bug fixes
+* Hello World!
