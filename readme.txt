@@ -1,9 +1,9 @@
 === Askupa Twitter Feed ===
 Contributors: Askupa Software
-Tags: twitter, tweet, tweets, feed, timeline, widget, ajax, customizable, comments, social, social media
+Tags: twitter, tweet, tweets, feed, timeline, widget, customizable, comments, social, social media, shortcode, caching, 
 Requires at least: 3.0
 Tested up to: 3.8.0
-Stable tag: 1.2.1
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -19,7 +19,7 @@ Follow us on [Twitter](http://www.twitter.com/askupasoftware) and on [Facebook](
 
 Try the [commercial version](http://codecanyon.net/item/twitter-feed-social-plugin-for-wordpress/6665168?ref=Askupa) of Twitter Feed that features 6 different twitter resources (including lists and search), 5 different skins and 3 different shortcodes!
 
-Feature List:
+**Feature List:**
 
 1. Twitter API 1.1
 1. Shortcodes + shortcode editor
