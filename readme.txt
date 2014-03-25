@@ -54,49 +54,47 @@ In order to update the settings of the widget, you'll need to login to your Word
 
 == Screenshots ==
 
-1. The widget with 3 recent tweets.
-2. When hovering over a tweet, tweeting option become visible.
-3. The settings page allows you to insert your access tokens
-4. To use the widget go to **Appearance -> Widgets** and add **WD Search Widget** widget.
-5. This widget is specifically designed to work with both "ltr" and "rtl" languages.
+1. Twitter Feed option page
+2. Shortcode editor
+3. Text editor (TinyMCE) button
+4. Widget
+5. Simplistic-skin
+6. Default skin (matches the theme style)
 
 == Changelog ==
 
-= 1.2.1 =
-* Filesystem cleanup
-* Minor bug fixes
+= 1.3 =
+* Fixed namespace issue
+* Critical fix for a bug that was causing the caching system to crash
+* Removed unused files
 
-= 1.2.0 =
-* Added support for the new Twitter API 1.1
-* New feature - live username verification
-* Minor CSS fixes 
-* Improved error handling
+= 1.2 =
+* Loading Font Awesome from a CDN instead of storing it locally
+* Removed the 20 tweets limit from the input fields
+* Updated wrong UI instructions
+* Reorganized file structure
+* Added PHP namespace implementation to prevent name collisions and improve modularity
+* Tested on more themes to improve CSS compatibility
+* Fixed minor CSS issues
+* Fixed web-intent issue that was causing it to open twice
 
-= 1.1.0 =
-* New feature - Change body and title colors using a color picker
-* Minor CSS fixes 
-* New ajax loader
-
-= 1.0.1 =
-* New feature - feed caching to avoid Twitter rate limiting
-* Improved error handling
-* Minor CSS fixes 
-* Fixed bug - T_PAAMAYIM_NEKUDOTAYIM
+= 1.1 =
+* New feature: Twitter lists. Feature any list from any user.
+* New feature: Twitter search. Feature tweets using the twitter search api.
+* New feature: Home timeline. Feature your home timeline, including your tweets, and the tweets of those you follow.
+* New feature: Mentions of me. Feature tweets containing a users???s @screen_name for the authenticating user. 
+* New feature: Retweets of me. Feature the most recent tweets authored by the authenticating user that have been retweeted by others.
+* Improved: Cache design
+* Improved: Debug mode can now be turned on/off from the administration panel.
+* Fixed: Slider with a single slide issue
+* Updated: User manual to reflect the new features
 
 = 1.0 =
-* Initial plugin release
+* Initial release
+
+
 
 == Upgrade Notice ==
 
-= 1.2.1 =
-* Filesystem cleanup, minor bug fixes
-
-= 1.2.0 =
-* Added support for the new Twitter API 1.1
-
-= 1.1.0 =
-* New features and minor CSS fixes 
-
-= 1.0.1 =
-* Improved error handling and caching, minor bug fixes
-* Hello World!
+= 1.3 =
+* Critical bug fix
