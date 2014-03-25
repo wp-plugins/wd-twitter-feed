@@ -1,0 +1,33 @@
+/**
+ * package:		Twitter Feed
+ * version:		1.3
+ * author:		Askupa Software <contact@askupasoftware.com>
+ * link:		http://products.askupasoftware.com/twitter-feed/
+ * facing:		public
+ */
+
+/* Tweet List */
+.twitter-feed.static-tweet-list.tweet-wrapper.simplistic-skin {
+	border: 1px solid #CCC;
+	border-radius: 5px;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+	background-color: white;
+}
+
+.twitter-feed.static-tweet-list.tweet-actions.simplistic-skin li {
+	display:inline;
+	margin: 0 10px 0 0 !important;
+}
+
+/* Sliding Tweet List */
+.twitter-feed.sliding-tweet-list.wrapper.simplistic-skin {
+	height: 122px; /* account for border and padding */
+}
+
+.twitter-feed.sliding-tweet-list.tweet-wrapper.simplistic-skin {
+	border: 1px solid #CCC;
+	border-radius: 5px;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+	background-color: white;
+	margin:5px;padding:5px;
+}
