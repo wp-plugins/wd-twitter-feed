@@ -3,7 +3,7 @@ Contributors: Askupa Software
 Tags: twitter, tweet, tweets, feed, timeline, widget, customizable, comments, social, social media, shortcode, caching, 
 Requires at least: 3.0
 Tested up to: 3.8.0
-Stable tag: 1.3
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -17,17 +17,18 @@ Visit the official [Twitter Feed](http://products.askupasoftware.com/twitter-fee
 
 Follow us on [Twitter](http://www.twitter.com/askupasoftware) and on [Facebook](http://www.facebook.com/askupasoftware) to get the latest updates and version releases.
 
-Try the [commercial version](http://codecanyon.net/item/twitter-feed-social-plugin-for-wordpress/6665168?ref=Askupa) of Twitter Feed that features 6 different twitter resources (including lists and search), 5 different skins and 3 different shortcodes!
+This is the limited version of the [commercial plugin](http://codecanyon.net/item/twitter-feed-social-plugin-for-wordpress/6665168?ref=Askupa) that features 6 different twitter resources (including lists and search), 5 different skins and 3 different shortcodes!
 
 **Feature List:**
 
 1. Twitter API 1.1
 1. Shortcodes + shortcode editor
 1. Widget
-1. LTR and RTL supoprt
+1. LTR and RTL support
 1. Powerful Caching system
 1. Tweet customization
 1. Tweet actions
+1. Tweet media (photos, YouTube and Vine videos)
 1. 100% responsive
 1. Illustrated step-by-step guide
 1. Clean & simple plugin options page
@@ -62,6 +63,10 @@ In order to update the settings of the widget, you'll need to login to your Word
 6. Default skin (matches the theme style)
 
 == Changelog ==
+
+= 1.4 =
+* Added support for embedded media in tweets. A tweet containing media will have a button that show the included media when clicked. Supported media types are (for now): Photos, Vine videos and YouTube videos
+* Improved CSS
 
 = 1.3 =
 * Fixed namespace issue
