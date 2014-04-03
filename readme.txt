@@ -37,7 +37,7 @@ This is the limited version of the [commercial plugin](http://codecanyon.net/ite
 == Installation ==
 
 1. Download the plugin zip package and extract it.
-1. Put the folder named ???askupa-twitter-feed" under /wp-content/plugins/ directory
+1. Put the folder named "askupa-twitter-feed" under /wp-content/plugins/ directory
 1. Goto the plugins page in your Wordpress admin panel and click "Activate"
 1. Goto Plugins -> Twitter Feed and enter your oAuth credentials (you would need to create a new application at https://dev.twitter.com/apps)
 1. You can implements tweets into your posts and pages using shortcodes or you can go to your widget area (Appearance -> widgets) and add *Twitter Feed* to your widget panel
@@ -87,7 +87,7 @@ In order to update the settings of the widget, you'll need to login to your Word
 * New feature: Twitter lists. Feature any list from any user.
 * New feature: Twitter search. Feature tweets using the twitter search api.
 * New feature: Home timeline. Feature your home timeline, including your tweets, and the tweets of those you follow.
-* New feature: Mentions of me. Feature tweets containing a users???s @screen_name for the authenticating user. 
+* New feature: Mentions of me. Feature tweets containing a users's @screen_name for the authenticating user. 
 * New feature: Retweets of me. Feature the most recent tweets authored by the authenticating user that have been retweeted by others.
 * Improved: Cache design
 * Improved: Debug mode can now be turned on/off from the administration panel.
@@ -103,3 +103,6 @@ In order to update the settings of the widget, you'll need to login to your Word
 
 = 1.3 =
 * Critical bug fix
+
+= 1.4 =
+* Added tweet media support for photos, YouTube & Vine videos
