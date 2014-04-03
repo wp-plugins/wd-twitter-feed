@@ -48,6 +48,15 @@ $rows[] = array(
 );
 
 $rows[] = array(
+	'label' => 'Number of Tweets per Request',
+	'values' => array(
+		array('text', '20'),
+		array('text', '800'),
+		array('text', '800')
+	)
+);
+
+$rows[] = array(
 	'label' => 'Shortcode Editor',
 	'values' => array(
 		array('symbol', 'check'),

@@ -174,6 +174,11 @@ class AskupaTwitterFeedWidget extends Widget {
 					'type' => 'checkbox',
 					'label' => 'Show User Name',
 					'default' => true
+				),
+				'media' => array(
+					'type' => 'checkbox',
+					'label' => 'Show Tweet Media',
+					'default' => true
 				)
 			)
 		);
