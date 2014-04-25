@@ -1,4 +1,4 @@
-=== Askupa Twitter Feed ===
+=== Askupa Twitter Feed === 
 Contributors: Askupa Software
 Tags: twitter, tweet, tweets, feed, timeline, widget, customizable, comments, social, social media, shortcode, caching, 
 Requires at least: 3.0
