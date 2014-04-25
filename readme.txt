@@ -3,7 +3,7 @@ Contributors: Askupa Software
 Tags: twitter, tweet, tweets, feed, timeline, widget, customizable, comments, social, social media, shortcode, caching, 
 Requires at least: 3.0
 Tested up to: 3.8.0
-Stable tag: 1.4
+Stable tag: 1.41
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -64,6 +64,11 @@ In order to update the settings of the widget, you'll need to login to your Word
 
 == Changelog ==
 
+= 1.41 =
+* Critical fix for Wordpress 3.9 and TinyMCE 4
+* New editor button icon, with retina display resolution
+* Minor CSS fixes
+
 = 1.4 =
 * Added support for embedded media in tweets. A tweet containing media will have a button that show the included media when clicked. Supported media types are (for now): Photos, Vine videos and YouTube videos
 * Improved CSS
@@ -101,8 +106,11 @@ In order to update the settings of the widget, you'll need to login to your Word
 
 == Upgrade Notice ==
 
-= 1.3 =
-* Critical bug fix
+= 1.41 =
+* Critical fix for WordPress 3.9
 
 = 1.4 =
 * Added tweet media support for photos, YouTube & Vine videos
+
+= 1.3 =
+* Critical bug fix
