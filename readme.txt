@@ -1,0 +1,116 @@
+=== Askupa Twitter Feed ===
+Contributors: Askupa Software
+Tags: twitter, tweet, tweets, feed, timeline, widget, customizable, comments, social, social media, shortcode, caching, 
+Requires at least: 3.0
+Tested up to: 3.8.0
+Stable tag: 1.41
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+Powerful Twitter Integration System for WordPress
+
+== Description ==
+
+**Twitter Feed** plugin for WordPress allows you to easily display Twitter user timelines in a wide variety of ways, using the included *shortcode engine* and *widget*. The included skins are fully responsive. The plugin has the option of caching tweets to improve the performance of the plugin.
+
+Visit the official [Twitter Feed](http://products.askupasoftware.com/twitter-feed/) page for live examples, code snippets and more information.
+
+Follow us on [Twitter](http://www.twitter.com/askupasoftware) and on [Facebook](http://www.facebook.com/askupasoftware) to get the latest updates and version releases.
+
+This is the limited version of the [commercial plugin](http://codecanyon.net/item/twitter-feed-social-plugin-for-wordpress/6665168?ref=Askupa) that features 6 different twitter resources (including lists and search), 5 different skins and 3 different shortcodes!
+
+**Feature List:**
+
+1. Twitter API 1.1
+1. Shortcodes + shortcode editor
+1. Widget
+1. LTR and RTL support
+1. Powerful Caching system
+1. Tweet customization
+1. Tweet actions
+1. Tweet media (photos, YouTube and Vine videos)
+1. 100% responsive
+1. Illustrated step-by-step guide
+1. Clean & simple plugin options page
+1. Very simple to setup
+
+== Installation ==
+
+1. Download the plugin zip package and extract it.
+1. Put the folder named "askupa-twitter-feed" under /wp-content/plugins/ directory
+1. Goto the plugins page in your Wordpress admin panel and click "Activate"
+1. Goto Plugins -> Twitter Feed and enter your oAuth credentials (you would need to create a new application at https://dev.twitter.com/apps)
+1. You can implements tweets into your posts and pages using shortcodes or you can go to your widget area (Appearance -> widgets) and add *Twitter Feed* to your widget panel
+
+== Frequently Asked Questions ==
+
+= Why do I need to enable caching? =
+
+Twitter Feed makes a request to the Twitter API every time someone views a page in your blog. This creates a problem since Twitter imposes a limit of 180 requests per hour. exceeding the limit would prevent you from making new requests until the clock is reset.
+The caching system allows you to fetch the data locally, which not only will prevent you from exceeding the rate limits, but is also much faster than making a request to Twitter.
+
+= Where can I update the settings? / I can't find the plugin settings =
+
+In order to update the settings of the widget, you'll need to login to your Wordpress admin panel and navigate to *Plugins -> Twitter Feed* where you will find a complete options page for the plugin.
+
+== Screenshots ==
+
+1. Twitter Feed option page
+2. Shortcode editor
+3. Text editor (TinyMCE) button
+4. Widget
+5. Simplistic-skin
+6. Default skin (matches the theme style)
+
+== Changelog ==
+
+= 1.41 =
+* Critical fix for Wordpress 3.9 and TinyMCE 4
+* New editor button icon, with retina display resolution
+* Minor CSS fixes
+
+= 1.4 =
+* Added support for embedded media in tweets. A tweet containing media will have a button that show the included media when clicked. Supported media types are (for now): Photos, Vine videos and YouTube videos
+* Improved CSS
+
+= 1.3 =
+* Fixed namespace issue
+* Critical fix for a bug that was causing the caching system to crash
+* Removed unused files
+
+= 1.2 =
+* Loading Font Awesome from a CDN instead of storing it locally
+* Removed the 20 tweets limit from the input fields
+* Updated wrong UI instructions
+* Reorganized file structure
+* Added PHP namespace implementation to prevent name collisions and improve modularity
+* Tested on more themes to improve CSS compatibility
+* Fixed minor CSS issues
+* Fixed web-intent issue that was causing it to open twice
+
+= 1.1 =
+* New feature: Twitter lists. Feature any list from any user.
+* New feature: Twitter search. Feature tweets using the twitter search api.
+* New feature: Home timeline. Feature your home timeline, including your tweets, and the tweets of those you follow.
+* New feature: Mentions of me. Feature tweets containing a users's @screen_name for the authenticating user. 
+* New feature: Retweets of me. Feature the most recent tweets authored by the authenticating user that have been retweeted by others.
+* Improved: Cache design
+* Improved: Debug mode can now be turned on/off from the administration panel.
+* Fixed: Slider with a single slide issue
+* Updated: User manual to reflect the new features
+
+= 1.0 =
+* Initial release
+
+
+
+== Upgrade Notice ==
+
+= 1.41 =
+* Critical fix for WordPress 3.9
+
+= 1.4 =
+* Added tweet media support for photos, YouTube & Vine videos
+
+= 1.3 =
+* Critical bug fix
