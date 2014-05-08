@@ -1,9 +1,9 @@
-=== Askupa Twitter Feed === 
+=== Askupa Twitter Feed ===
 Contributors: Askupa Software
 Tags: twitter, tweet, tweets, feed, timeline, widget, customizable, comments, social, social media, shortcode, caching, 
 Requires at least: 3.0
 Tested up to: 3.8.0
-Stable tag: 1.41
+Stable tag: 1.42
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -64,6 +64,12 @@ In order to update the settings of the widget, you'll need to login to your Word
 
 == Changelog ==
 
+= 1.42 =
+* Fix for include/exclude retweets
+* Fix for bug-report section
+* Added widget subtitle option
+* Added tooltips for tweet actions
+
 = 1.41 =
 * Critical fix for Wordpress 3.9 and TinyMCE 4
 * New editor button icon, with retina display resolution
@@ -105,6 +111,9 @@ In order to update the settings of the widget, you'll need to login to your Word
 
 
 == Upgrade Notice ==
+
+= 1.42 =
+* Fix for include/exclude retweets
 
 = 1.41 =
 * Critical fix for WordPress 3.9
