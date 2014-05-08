@@ -49,6 +49,6 @@ jQuery(document).ready(function ($) {
 	
 	// Set tooltips
 	$('.tweet-actions').tooltip({
-		selector: "li[data-toggle=tooltip]"
+		selector: "a[data-toggle=tooltip]"
 	});
 });

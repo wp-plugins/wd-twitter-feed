@@ -75,6 +75,7 @@ class AskupaTwitterFeed extends \AMARKAL\Amarkal {
 	/*------------------------------------------------------*/
 	public function enqueue_public_styles() {
 		wp_enqueue_style( 'font-awsome', 'http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css', array(), '4.0.3' );
+		wp_enqueue_style( 'bootstrap', 'http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css', array(), '3.1.1' );
 		parent::enqueue_public_styles();
 	}
 

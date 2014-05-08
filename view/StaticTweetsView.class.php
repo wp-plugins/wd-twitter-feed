@@ -104,9 +104,9 @@ class StaticTweetsView extends TweetsView {
 			$wi = 'https://twitter.com/intent/';
 			$tooltip_attr = 'data-toggle="tooltip" data-placement="top"';
 			$output .= '<ul class="'.$this->cssClass.' tweet-actions '.$this->options['dir'].' '.$this->options['skin'].'">';
-			$output .= '<li '.$tooltip_attr.' title="Reply"><a href="'.$wi.'tweet?in_reply_to='.$tweet->getId().'" class="reply-action web-intent" title="'.__('reply', $this->textdomain).'"><i class="fa fa-reply"></i></a></li>';
-			$output .= '<li '.$tooltip_attr.' title="Retweet"><a href="'.$wi.'retweet?tweet_id='.$tweet->getId().'" class="retweet-action web-intent" title="'.__('retweet', $this->textdomain).'"><i class="fa fa-retweet"></i></a> '.$tweet->getRetweetCount().'</li>';
-			$output .= '<li '.$tooltip_attr.' title="Favorite"><a href="'.$wi.'favorite?tweet_id='.$tweet->getId().'" class="favorite-action web-intent" title="'.__('favorite', $this->textdomain).'"><i class="fa fa-star"></i></a> '.$tweet->getFavoriteCount().'</li>';
+			$output .= '<li><a '.$tooltip_attr.' title="Reply" href="'.$wi.'tweet?in_reply_to='.$tweet->getId().'" class="reply-action web-intent" title="'.__('reply', $this->textdomain).'"><i class="fa fa-reply"></i></a></li>';
+			$output .= '<li><a '.$tooltip_attr.' title="Retweet" href="'.$wi.'retweet?tweet_id='.$tweet->getId().'" class="retweet-action web-intent" title="'.__('retweet', $this->textdomain).'"><i class="fa fa-retweet"></i></a> '.$tweet->getRetweetCount().'</li>';
+			$output .= '<li><a '.$tooltip_attr.' title="Favorite" href="'.$wi.'favorite?tweet_id='.$tweet->getId().'" class="favorite-action web-intent" title="'.__('favorite', $this->textdomain).'"><i class="fa fa-star"></i></a> '.$tweet->getFavoriteCount().'</li>';
 			$output .= '</ul>';
 		}
 		
