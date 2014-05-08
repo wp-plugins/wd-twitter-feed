@@ -1,0 +1,17 @@
+/**
+ * package:		Twitter Feed
+ * version:		1.42
+ * author:		Askupa Software <contact@askupasoftware.com>
+ * link:		http://products.askupasoftware.com/twitter-feed/
+ * facing:		admin
+ */
+
+/* TinyMCE Plugin icon
+/*----------------------------------------*/
+
+i.mce-ico.mce-i-twitter-feed-icon {
+	background: url(../img/plugin-icon.png);
+	background-size: 110%;
+	background-position: 50% 50%;
+}
+
