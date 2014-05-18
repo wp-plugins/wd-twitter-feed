@@ -1,0 +1,13 @@
+<div class="askupa-wrapper">
+	<noscript>Warning- This options panel will not work properly without javascript!</noscript>
+	<form method="post" action="" enctype="multipart/form-data" id="askupa-form">
+		<krg:Content id="header">
+		</krg:Content>
+		<krg:Content id="sidebar">
+		</krg:Content>
+		<krg:Content id="content">
+		</krg:Content>
+		<krg:Content id="footer">
+		</krg:Content>
+	</form>
+</div>
