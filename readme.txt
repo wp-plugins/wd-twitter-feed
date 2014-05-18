@@ -3,7 +3,7 @@ Contributors: Askupa Software
 Tags: twitter, tweet, tweets, feed, timeline, widget, customizable, comments, social, social media, shortcode, caching, 
 Requires at least: 3.0
 Tested up to: 3.8.0
-Stable tag: 1.42
+Stable tag: 1.43
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -64,6 +64,11 @@ In order to update the settings of the widget, you'll need to login to your Word
 
 == Changelog ==
 
+= 1.43 =
+* New API
+* Separated view from controller
+* Minor CSS updates
+
 = 1.42 =
 * Fix for include/exclude retweets
 * Fix for bug-report section
@@ -108,9 +113,10 @@ In order to update the settings of the widget, you'll need to login to your Word
 = 1.0 =
 * Initial release
 
-
-
 == Upgrade Notice ==
+
+= 1.43 =
+* New API
 
 = 1.42 =
 * Fix for include/exclude retweets
