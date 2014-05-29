@@ -1,0 +1,18 @@
+/**
+ * package:		Twitter Feed
+ * version:		1.44
+ * author:		Askupa Software <contact@askupasoftware.com>
+ * link:		http://products.askupasoftware.com/twitter-feed/
+ * facing:		public
+ */
+
+.twitter-feed.static-tweet-list.tweet-wrapper.default-skin {
+	background-color: transparent;
+}
+
+.twitter-feed.static-tweet-list.tweet-actions.default-skin li {
+	display:inline;
+	margin: 0 10px 0 0 !important;
+}
+
+.twitter-feed.scrolling-tweet-list.tweet-text.default-skin > p span {font-family: 'pacifico', cursive}

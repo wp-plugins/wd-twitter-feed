@@ -1,0 +1,11 @@
+<div class="amarkal-footer">
+	<div class="amarkal-footer-text">
+		<af:img id="logoImg" />
+		<af:paragraph id="footerText"></af:paragraph>
+	</div>
+	<div class="amarkal-actions">
+		<af:button id="saveButton" />
+		<af:button id="resetSectionButton"/>
+		<af:button id="resetAllButton"/>
+	</div>
+</div>
