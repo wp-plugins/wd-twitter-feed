@@ -3,7 +3,7 @@ Contributors: Askupa Software
 Tags: twitter, tweet, tweets, feed, timeline, widget, customizable, comments, social, social media, shortcode, caching, 
 Requires at least: 3.0
 Tested up to: 3.9.1
-Stable tag: 1.43
+Stable tag: 1.44
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,6 +33,7 @@ This is the limited version of the [commercial plugin](http://codecanyon.net/ite
 1. Illustrated step-by-step guide
 1. Clean & simple plugin options page
 1. Very simple to setup
+1. Easy API for developers
 
 == Installation ==
 
@@ -44,6 +45,14 @@ This is the limited version of the [commercial plugin](http://codecanyon.net/ite
 
 == Frequently Asked Questions ==
 
+= Where can I find the oAuth access tokens? =
+
+Twitter uses oAuth access tokens to verify the user that is fetching the data. In order to get your own tokens, you would have to create a twitter app on https://dev.twitter.com/ after which you will be provided with the app’s oAuth credentials that are needed for Twitter Feed.
+
+= Is it possible to use the plugin without using shortcodes? =
+
+Since version 1.43, Twitter Feed comes with a PHP based API that allows you to fetch tweets anywhere without having to use shortcodes. The API can be found under `core/functions.php`
+
 = Why do I need to enable caching? =
 
 Twitter Feed makes a request to the Twitter API every time someone views a page in your blog. This creates a problem since Twitter imposes a limit of 180 requests per hour. exceeding the limit would prevent you from making new requests until the clock is reset.
@@ -52,6 +61,10 @@ The caching system allows you to fetch the data locally, which not only will pre
 = Where can I update the settings? / I can't find the plugin settings =
 
 In order to update the settings of the widget, you'll need to login to your Wordpress admin panel and navigate to *Plugins -> Twitter Feed* where you will find a complete options page for the plugin.
+
+= Is possible to show multiple hashtags? =
+
+Since version 1.1, Twitter Feed supports the new Twitter search engine. Everything that is possible through the search engine is possible through Twitter Feed. For example, you can display all the tweets that contain the #jazz and the #guitar hashtags by specifying the search query `#jazz AND #guitar` in the query input field.
 
 == Screenshots ==
 
@@ -63,6 +76,12 @@ In order to update the settings of the widget, you'll need to login to your Word
 6. Default skin (matches the theme style)
 
 == Changelog ==
+
+= 1.44 =
+* Minor bug fixes
+* Minor CSS improvements
+* Updated field names for oAuth tokens
+* Readme update
 
 = 1.43 =
 * New API
@@ -114,6 +133,9 @@ In order to update the settings of the widget, you'll need to login to your Word
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.44 =
+* Minor bug fixes
 
 = 1.43 =
 * New API
