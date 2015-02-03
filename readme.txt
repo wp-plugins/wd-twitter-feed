@@ -1,17 +1,18 @@
-=== Askupa Twitter Feed ===
+=== Twitter Feed ===
 Contributors: Askupa Software
 Tags: twitter, tweet, tweets, feed, timeline, widget, customizable, comments, social, social media, shortcode, caching, 
 Requires at least: 3.0
-Tested up to: 3.9.1
-Stable tag: 1.44
+Tested up to: 4.1
+Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Powerful Twitter Integration System for WordPress
+Powerful Twitter Integration System for WordPress.
 
 == Description ==
 
-**Twitter Feed** plugin for WordPress allows you to easily display Twitter user timelines in a wide variety of ways, using the included *shortcode engine* and *widget*. The included skins are fully responsive. The plugin has the option of caching tweets to improve the performance of the plugin.
+**Twitter Feed** plugin for WordPress allows you to easily display Twitter user timelines in a wide variety of ways, using the included *shortcode engine* and *widget*. 
+The included skins are fully responsive. Using the caching engine, tweets can be stored locally to improve performance. Users can track their usage status and see if it is in accordance with Twitter rate limits.
 
 Visit the official [Twitter Feed](http://products.askupasoftware.com/twitter-feed/) page for live examples, code snippets and more information.
 
@@ -32,8 +33,9 @@ This is the limited version of the [commercial plugin](http://codecanyon.net/ite
 1. 100% responsive
 1. Illustrated step-by-step guide
 1. Clean & simple plugin options page
-1. Very simple to setup
+1. Very simple to setup & maintain
 1. Easy API for developers
+1. Usage status tracking tool
 
 == Installation ==
 
@@ -64,90 +66,105 @@ In order to update the settings of the widget, you'll need to login to your Word
 
 = Is possible to show multiple hashtags? =
 
-Since version 1.1, Twitter Feed supports the new Twitter search engine. Everything that is possible through the search engine is possible through Twitter Feed. For example, you can display all the tweets that contain the #jazz and the #guitar hashtags by specifying the search query `#jazz AND #guitar` in the query input field.
+Since version 1.1, Twitter Feed supports making queries using the new Twitter search engine. Everything that is possible through the search engine is possible through Twitter Feed. For example, you can display all the tweets that contain the #jazz and the #guitar hashtags by specifying the search query `#jazz AND #guitar` in the query input field.
 
 == Screenshots ==
 
 1. Twitter Feed option page
 2. Shortcode editor
-3. Text editor (TinyMCE) button
+3. Text editor (TinyMCE) button popup options
 4. Widget
 5. Simplistic-skin
 6. Default skin (matches the theme style)
+7. Usage status tracker
 
 == Changelog ==
 
-= 1.44 =
-* Minor bug fixes
-* Minor CSS improvements
-* Updated field names for oAuth tokens
-* Readme update
+= 2.0.0 =
+* (NEW) Minified and concatenated CSS & JS, only 10kb total!
+* (NEW) Better formatted, self contained JavaScript
+* (NEW) Integrated into Amarkal Framework
+* (NEW) options & widget control panels
+* (NEW) Editor widget with easy-to-use box icons
+* (NEW) Added usage status section to the admin panel (Thanks for the idea, Mark Rickan!)
+* (FIX) Improved stability
+* (FIX) Improved Cross-Browser compatibility
+* (FIX) Bug report tool not getting through spam filter
 
-= 1.43 =
-* New API
-* Separated view from controller
-* Minor CSS updates
+= 1.4.4 =
+* (FIX) Minor bug fixes
+* (FIX) Minor CSS improvements
+* (UPDATE) field names for oAuth tokens
+* (UPDATE) Readme
 
-= 1.42 =
-* Fix for include/exclude retweets
-* Fix for bug-report section
-* Added widget subtitle option
-* Added tooltips for tweet actions
+= 1.4.3 =
+* (NEW) Twitter Feed API
+* (FIX) Separated view from controller
+* (UPDATE) Minor CSS updates
 
-= 1.41 =
-* Critical fix for Wordpress 3.9 and TinyMCE 4
-* New editor button icon, with retina display resolution
-* Minor CSS fixes
+= 1.4.2 =
+* (FIX) for include/exclude retweets
+* (FIX) for bug-report section
+* (NEW) Added widget subtitle option
+* (NEW) Added tooltips for tweet actions
 
-= 1.4 =
-* Added support for embedded media in tweets. A tweet containing media will have a button that show the included media when clicked. Supported media types are (for now): Photos, Vine videos and YouTube videos
-* Improved CSS
+= 1.4.1 =
+* (FIX) Critical fix for Wordpress 3.9 and TinyMCE 4
+* (NEW) editor button icon, with retina display resolution
+* (FIX) Minor CSS fixes
 
-= 1.3 =
-* Fixed namespace issue
-* Critical fix for a bug that was causing the caching system to crash
-* Removed unused files
+= 1.4.0 =
+* (NEW) Added support for embedded media in tweets. A tweet containing media will have a button that show the included media when clicked. Supported media types are (for now): Photos, Vine videos and YouTube videos
+* (NEW) Improved CSS
 
-= 1.2 =
-* Loading Font Awesome from a CDN instead of storing it locally
-* Removed the 20 tweets limit from the input fields
-* Updated wrong UI instructions
-* Reorganized file structure
-* Added PHP namespace implementation to prevent name collisions and improve modularity
-* Tested on more themes to improve CSS compatibility
-* Fixed minor CSS issues
-* Fixed web-intent issue that was causing it to open twice
+= 1.3.0 =
+* (FIX) namespace issue
+* (FIX) Critical fix for a bug that was causing the caching system to crash
+* (UPDATE) Removed unused files
 
-= 1.1 =
-* New feature: Twitter lists. Feature any list from any user.
-* New feature: Twitter search. Feature tweets using the twitter search api.
-* New feature: Home timeline. Feature your home timeline, including your tweets, and the tweets of those you follow.
-* New feature: Mentions of me. Feature tweets containing a users's @screen_name for the authenticating user. 
-* New feature: Retweets of me. Feature the most recent tweets authored by the authenticating user that have been retweeted by others.
-* Improved: Cache design
-* Improved: Debug mode can now be turned on/off from the administration panel.
-* Fixed: Slider with a single slide issue
-* Updated: User manual to reflect the new features
+= 1.2.0 =
+* (FIX) Loading Font Awesome from a CDN instead of storing it locally
+* (FIX) Removed the 20 tweets limit from the input fields
+* (FIX) minor CSS issues
+* (FIX) web-intent issue that was causing it to open twice
+* (FIX) Reorganized file structure
+* (FIX) Added PHP namespace implementation to prevent name collisions and improve modularity
+* (UPDATE) Tested on more themes to improve CSS compatibility
+* (UPDATE) Updated wrong UI instructions
 
-= 1.0 =
+= 1.1.0 =
+* (NEW) Twitter lists. Feature any list from any user.
+* (NEW) Twitter search. Feature tweets using the twitter search api.
+* (NEW) Home timeline. Feature your home timeline, including your tweets, and the tweets of those you follow.
+* (NEW) Mentions of me. Feature tweets containing a users's @screen_name for the authenticating user. 
+* (NEW) Retweets of me. Feature the most recent tweets authored by the authenticating user that have been retweeted by others.
+* (UPDATE) Cache design
+* (UPDATE) Debug mode can now be turned on/off from the administration panel.
+* (UPDATE) User manual to reflect the new features
+* (FIX) Slider with a single slide issue
+
+= 1.0.0 =
 * Initial release
 
 == Upgrade Notice ==
 
-= 1.44 =
+= 2.0.0 =
+* Brand new user interface, multiple bug fixes, improved CSS.
+
+= 1.4.4 =
 * Minor bug fixes
 
-= 1.43 =
+= 1.4.3 =
 * New API
 
-= 1.42 =
+= 1.4.2 =
 * Fix for include/exclude retweets
 
-= 1.41 =
+= 1.4.1 =
 * Critical fix for WordPress 3.9
 
-= 1.4 =
+= 1.4.0 =
 * Added tweet media support for photos, YouTube & Vine videos
 
-= 1.3 =
+= 1.3.0 =
 * Critical bug fix
