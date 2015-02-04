@@ -1,0 +1,84 @@
+.atf-sliding-tweets {
+    height:100px;
+    overflow: hidden;
+    position: relative;
+    margin: 15px 0;
+
+    .atf-tweet-padder {
+        position: absolute;
+        height:100%;
+        width: 100%;
+    }
+    
+    .atf-tweet-wrapper {
+        position: relative;
+        height: 100px;
+        
+        .atf-tweet-time {
+            float: right;
+            font-size: 12px;
+            font-style: italic;
+            line-height: 30px;
+        }
+        
+        .atf-user-card {
+            height: 35px;
+            
+            img {float: left;}
+        }
+        
+        .atf-screen-name {
+            margin-left: 40px;
+            padding: 5px 0;
+            font-size: 12px;
+            line-height: 12px;
+        }
+        
+        .atf-tweet-text {
+            margin:0;
+            height: 35px;
+            font-size:13px;
+            line-height: 16px;
+            overflow: hidden;
+        }
+        
+        .atf-retweet-credits {
+            margin:0 0 0 10px;
+            font-size:12px;
+            height: 20px;
+        }
+        
+        .atf-tweet-actions {
+            position: absolute;
+            bottom: 0px;
+            list-style: none;
+            margin: 5px 0;
+            right:5px;
+            font-size:12px;
+            
+            li {
+                display: inline;
+                margin-left: 7px;
+            }
+        }
+    }
+    
+    &.atf-skin-default {}
+    
+    &.atf-skin-simplistic {
+        height: 110px;
+        .atf-tweet-wrapper{padding: 10px;height: 110px;}
+        .atf-user-card {margin: 8px 0;}
+    }
+    
+    &.atf-skin-futuristic {
+        height: 120px;
+        .atf-tweet-wrapper{padding: 10px;}
+    }
+    
+    &.atf-skin-talk-bubble {
+        height: 140px;
+        .atf-user-card {margin: 8px 0;}
+        .atf-tweet-wrapper{height: 110px;}
+    }
+}
