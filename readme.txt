@@ -2,8 +2,8 @@
 Contributors: Askupa Software
 Tags: twitter, tweet, tweets, feed, timeline, widget, customizable, comments, social, social media, shortcode, caching, 
 Requires at least: 3.0
-Tested up to: 4.1
-Stable tag: 2.0.1
+Tested up to: 4.1.1
+Stable tag: 2.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -11,8 +11,9 @@ Powerful Twitter Integration System for WordPress.
 
 == Description ==
 
-**Twitter Feed** plugin for WordPress allows you to easily display Twitter user timelines in a wide variety of ways, using the included *shortcode engine* and *widget*. 
-The included skins are fully responsive. Using the caching engine, tweets can be stored locally to improve performance. Users can track their usage status and see if it is in accordance with Twitter rate limits.
+**Twitter Feed** allows you to easily display tweets from Twitter in a wide variety of ways, using the included *shortcode engine* and *widget*. 
+The comes with fully responsive skins. Using the caching engine, tweets can be stored locally to improve performance by decreasing load time. 
+Users can use the *Usage Tracker* tool to track their usage status and see if it is in accordance with Twitter rate limits.
 
 Visit the official [Twitter Feed](http://products.askupasoftware.com/twitter-feed/) page for live examples, code snippets and more information.
 
@@ -20,22 +21,30 @@ Follow us on [Twitter](http://www.twitter.com/askupasoftware) and on [Facebook](
 
 This is the limited version of the [commercial plugin](http://codecanyon.net/item/twitter-feed-social-plugin-for-wordpress/6665168?ref=Askupa) that features 6 different twitter resources (including lists and search), 5 different skins and 3 different shortcodes!
 
-**Feature List:**
+**Features**
 
-1. Twitter API 1.1
-1. Shortcodes + shortcode editor
-1. Widget
-1. LTR and RTL support
-1. Powerful Caching system
-1. Tweet customization
-1. Tweet actions
-1. Tweet media (photos, YouTube and Vine videos)
-1. 100% responsive
-1. Illustrated step-by-step guide
-1. Clean & simple plugin options page
-1. Very simple to setup & maintain
-1. Easy API for developers
-1. Usage status tracking tool
+* Twitter API 1.1
+* Shortcodes + shortcode editor
+* Widget
+* LTR and RTL support
+* Powerful Caching system
+* Tweet customization
+* Tweet actions
+* Tweet media (photos, YouTube and Vine videos)
+* 100% responsive
+* Illustrated step-by-step guide
+* Clean & simple plugin options page
+* Very simple to setup & maintain
+* Easy API for developers
+* Usage status tracking tool
+
+**Useful Links**
+
+* [Official Page](http://products.askupasoftware.com/twitter-feed/)
+* [Manual](http://products.askupasoftware.com/wp-content/uploads/sites/2/2014/01/manual.pdf)
+* [Blog Example 1](http://products.askupasoftware.com/twitter-feed-example-1/)
+* [Blog Example 2](http://products.askupasoftware.com/twitter-feed-example-2/)
+* [How to create a Twitter app](http://products.askupasoftware.com/how-to-create-a-twitter-application/)
 
 == Installation ==
 
@@ -79,6 +88,13 @@ Since version 1.1, Twitter Feed supports making queries using the new Twitter se
 7. Usage status tracker
 
 == Changelog ==
+
+= 2.0.2 =
+* (UPDATE) Updated code documentation and improved formatting
+* (UPDATE) Amarkal Framework v0.3.3
+* (FIX) Some CSS issues
+* (FIX) Widget assets not corresponding to settings
+* (FIX) Issue involving multiple framework instances
 
 = 2.0.1 =
 * (FIX) Critical Amarkal framework update
@@ -151,8 +167,11 @@ Since version 1.1, Twitter Feed supports making queries using the new Twitter se
 
 == Upgrade Notice ==
 
+= 2.0.2 =
+* Widget assets not corresponding to settings
+
 = 2.0.1 =
-* (FIX) Critical Amarkal framework update
+* Critical Amarkal framework update
 
 = 2.0.0 =
 * Brand new user interface, multiple bug fixes, improved CSS.
