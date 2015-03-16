@@ -3,7 +3,7 @@ Contributors: Askupa Software
 Tags: twitter, tweet, tweets, feed, timeline, widget, customizable, comments, social, social media, shortcode, caching, 
 Requires at least: 3.0
 Tested up to: 4.1.1
-Stable tag: 2.0.2
+Stable tag: 2.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -41,10 +41,11 @@ This is the limited version of the [commercial plugin](http://codecanyon.net/ite
 **Useful Links**
 
 * [Official Page](http://products.askupasoftware.com/twitter-feed/)
-* [Manual](http://products.askupasoftware.com/wp-content/uploads/sites/2/2014/01/manual.pdf)
-* [Blog Example 1](http://products.askupasoftware.com/twitter-feed-example-1/)
-* [Blog Example 2](http://products.askupasoftware.com/twitter-feed-example-2/)
-* [How to create a Twitter app](http://products.askupasoftware.com/how-to-create-a-twitter-application/)
+* [Documentation](http://products.askupasoftware.com/twitter-feed/documentation/)
+* [Examples](http://products.askupasoftware.com/twitter-feed/examples/)
+* [Shortcodes](http://products.askupasoftware.com/twitter-feed/shortcodes/)
+* [API](http://products.askupasoftware.com/twitter-feed/api/)
+* [How to create a Twitter app](http://blog.askupasoftware.com/how-to-create-a-twitter-application/)
 
 == Installation ==
 
@@ -88,6 +89,11 @@ Since version 1.1, Twitter Feed supports making queries using the new Twitter se
 7. Usage status tracker
 
 == Changelog ==
+
+= 2.0.3 =
+* (UPDATE) Amarkal Framework v0.3.4
+* (FIX) Some CSS issues
+* (FIX) Slider height is now adjusting automatically
 
 = 2.0.2 =
 * (UPDATE) Updated code documentation and improved formatting
@@ -166,6 +172,9 @@ Since version 1.1, Twitter Feed supports making queries using the new Twitter se
 * Initial release
 
 == Upgrade Notice ==
+
+= 2.0.3 =
+* Minor bug and CSS fixes
 
 = 2.0.2 =
 * Widget assets not corresponding to settings
