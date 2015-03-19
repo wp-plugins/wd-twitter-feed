@@ -29,7 +29,7 @@ $config = array(
         new Options\Section(array(
             'title'         => 'Tokens',
             'icon'          => 'fa-list-ol',
-            'description'   => 'Set your Twitter application access tokens. These access tokens are used by Twitter to authenticate the connection between your website to Twitter.com using API 1.1.<br/>Lost? read the tutorial on <a target="_blank" href="http://products.askupasoftware.com/how-to-create-a-twitter-application/">How to create a twitter application</a>.',
+            'description'   => 'Set your Twitter application access tokens. These access tokens are used by Twitter to authenticate the connection between your website to Twitter.com using API 1.1.<br/>Lost? read the tutorial on <a target="_blank" href="http://blog.askupasoftware.com/how-to-create-a-twitter-application/">How to create a twitter application</a>.',
             'subsections'   => array(
                 array(
                     'title'     => 'Access Tokens',
