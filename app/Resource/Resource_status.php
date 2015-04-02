@@ -21,7 +21,7 @@ class Resource_status
     
     public function __construct( $args ) 
     {
-        $this->api = new \j7mbo\TwitterAPIExchange($this->get_tokens());
+        $this->api = new \TwitterAPIExchange($this->get_tokens());
         $this->args = $args;
     }
     
