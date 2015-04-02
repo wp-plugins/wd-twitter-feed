@@ -3,7 +3,7 @@ Contributors: Askupa Software
 Tags: twitter, tweet, tweets, feed, timeline, widget, customizable, comments, social, social media, shortcode, caching, 
 Requires at least: 3.0
 Tested up to: 4.1.1
-Stable tag: 2.0.3
+Stable tag: 2.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -89,6 +89,14 @@ Since version 1.1, Twitter Feed supports making queries using the new Twitter se
 7. Usage status tracker
 
 == Changelog ==
+
+= 2.0.4 =
+* (UPDATE) Amarkal Framework v0.3.5
+* (UPDATE) Twitter API Exchange v5.3.10
+* (NEW) Add an option the write custom CSS (under 'Appearance')
+* (FIX) Tested under WP_DEBUG mode
+* (FIX) Scrolling tweets showing the wrong tweet time
+* (FIX) Bug that was causing retweet credits not to show
 
 = 2.0.3 =
 * (UPDATE) Amarkal Framework v0.3.4
