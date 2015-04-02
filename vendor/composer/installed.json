@@ -1,0 +1,79 @@
+[
+    {
+        "name": "askupa-software/amarkal-framework",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/amarkal/amarkal.git",
+            "reference": "b863b7368d035ac678883212dd18ac1c67a515db"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/amarkal/amarkal/zipball/b863b7368d035ac678883212dd18ac1c67a515db",
+            "reference": "b863b7368d035ac678883212dd18ac1c67a515db",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2014-09-11 23:13:02",
+        "type": "library",
+        "installation-source": "source",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-3.0+"
+        ],
+        "description": "Development framework for WordPress.",
+        "keywords": [
+            "amarkal",
+            "framework",
+            "options",
+            "plugin",
+            "template",
+            "widget",
+            "wordpress"
+        ]
+    },
+    {
+        "name": "j7mbo/twitter-api-php",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/J7mbo/twitter-api-php.git",
+            "reference": "ab76f1c1e6bf83f0a257216cbaf9932b7cc19a3f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/J7mbo/twitter-api-php/zipball/ab76f1c1e6bf83f0a257216cbaf9932b7cc19a3f",
+            "reference": "ab76f1c1e6bf83f0a257216cbaf9932b7cc19a3f",
+            "shasum": ""
+        },
+        "time": "2013-10-03 10:04:59",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "files": [
+                "TwitterAPIExchange.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GNU Public License"
+        ],
+        "authors": [
+            {
+                "name": "James Mallison",
+                "homepage": "https://github.com/j7mbo/twitter-api-php"
+            }
+        ],
+        "description": "Simple PHP Wrapper for Twitter API v1.1 calls",
+        "homepage": "https://github.com/j7mbo/twitter-api-php",
+        "keywords": [
+            "api",
+            "php",
+            "twitter"
+        ]
+    }
+]
