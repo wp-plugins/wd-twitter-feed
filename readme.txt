@@ -7,7 +7,7 @@ Stable tag: 2.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Powerful Twitter Integration System for WordPress.
+A powerful Twitter integration system that allows you to display tweets using widgets and shortcodes
 
 == Description ==
 
