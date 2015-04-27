@@ -2,8 +2,8 @@
 Contributors: Askupa Software
 Tags: twitter, tweet, tweets, feed, timeline, widget, customizable, comments, social, social media, shortcode, caching, 
 Requires at least: 3.0
-Tested up to: 4.1.1
-Stable tag: 2.0.4
+Tested up to: 4.2.1
+Stable tag: 2.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -89,6 +89,12 @@ Since version 1.1, Twitter Feed supports making queries using the new Twitter se
 7. Usage status tracker
 
 == Changelog ==
+
+= 2.0.5 =
+* (FIX) Improved code structure and fixed PHP notices
+* (FIX) Security vulnerability related to add_query_args()
+* (FIX) RTL/LTR issue
+* (UPDATE) Amarkal Framework v0.3.6
 
 = 2.0.4 =
 * (UPDATE) Amarkal Framework v0.3.5
@@ -180,6 +186,9 @@ Since version 1.1, Twitter Feed supports making queries using the new Twitter se
 * Initial release
 
 == Upgrade Notice ==
+
+= 2.0.3 =
+* Security update
 
 = 2.0.3 =
 * Minor bug and CSS fixes
