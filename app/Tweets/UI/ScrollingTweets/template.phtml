@@ -1,0 +1,20 @@
+<div class="atf-object atf-scrolling-tweets atf-skin-<?php echo $this->skin; ?> atf-direction-<?php echo $this->direction ?>" data-scroll-time="<?php echo $this->scroll_time; ?>">
+    <div class="atf-inner-wrapper">
+        <?php foreach ($this->tweets as $tweet): ?>
+            <div class="atf-tweet-wrapper">
+                <div class="atf-tweet-text">
+                    <p>
+                        <span><?php echo $tweet->user_name; ?>: </span>
+                        <?php echo \TwitterFeed\Tweets\AbstractTweet::format_tweet_text( $tweet->tweet_text ); ?>
+                    </p>
+                </div>
+                
+                <?php $date = new \DateTime($tweet->created_at); ?>
+                <time class="atf-tweet-time" datetime="<?php echo $date->format($date::W3C); ?>" title="Tweet Time">
+                    <?php echo date_i18n(get_option('date_format'), $date->getTimestamp()); ?>
+                </time>
+                
+            </div>
+        <?php endforeach; ?>
+    </div>
+</div>

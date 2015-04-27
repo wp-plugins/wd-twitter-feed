@@ -1,0 +1,9 @@
+<div class="atf-object atf-sliding-tweets atf-skin-<?php echo $this->skin; ?> atf-direction-<?php echo $this->direction ?>" 
+     data-slide-dir="<?php echo $this->slide_dir; ?>" 
+     data-slide-duration="<?php echo $this->slide_duration; ?>">
+    <?php foreach ($this->tweets as $tweet): ?>
+        <div class="atf-tweet-padder">
+            <?php $tweet = new TwitterFeed\Tweets\UI\Tweet( $tweet, $this->settings ); $tweet->render(true); ?>
+        </div>
+    <?php endforeach; ?>
+</div>
