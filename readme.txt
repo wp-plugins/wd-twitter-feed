@@ -2,8 +2,8 @@
 Contributors: Askupa Software
 Tags: twitter, tweet, tweets, feed, timeline, widget, customizable, comments, social, social media, shortcode, caching, 
 Requires at least: 3.0
-Tested up to: 4.2.1
-Stable tag: 2.0.5
+Tested up to: 4.2.2
+Stable tag: 2.0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -89,6 +89,11 @@ Since version 1.1, Twitter Feed supports making queries using the new Twitter se
 7. Usage status tracker
 
 == Changelog ==
+
+= 2.0.6 =
+* (FIX) Bug that was breaking the status tracker if Twitter could not authenticate the user
+* (FIX) Issue related to embedded youtube videos
+* (UPDATE) Bumped up FontAwesome version
 
 = 2.0.5 =
 * (FIX) Improved code structure and fixed PHP notices
