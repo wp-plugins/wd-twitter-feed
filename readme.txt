@@ -93,6 +93,7 @@ Since version 1.1, Twitter Feed supports making queries using the new Twitter se
 = 2.0.7 =
 * (FIX) Bug that was causing search results not to be properly stored in cache
 * (UPDATE) Widget code structure
+* (UPDATE) Loading all media using https
 
 = 2.0.6 =
 * (FIX) Bug that was breaking the status tracker if Twitter could not authenticate the user
