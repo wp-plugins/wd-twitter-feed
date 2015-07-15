@@ -275,7 +275,7 @@ class TweetsParser
                     foreach($entities->media as $_media) {
                         $media[] = array(
                             'type' => $_media->type,
-                            'url' => $_media->media_url,
+                            'url' => $_media->media_url_https,
                             'width' => $_media->sizes->large->w,
                             'height' => $_media->sizes->large->h
                         );
@@ -306,7 +306,7 @@ class TweetsParser
             // Create a new Tweet object
             $tweet = new Tweet(array(
                 'created_at' => $key->created_at, 
-                'image_url' => $key->user->profile_image_url, 
+                'image_url' => $key->user->profile_image_url_https, 
                 'screen_name' => $key->user->screen_name, 
                 'user_name' => $key->user->name, 
                 'tweet_text' => utf8_encode($key->text), // Tweet text may contain special characters
