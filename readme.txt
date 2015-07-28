@@ -2,8 +2,8 @@
 Contributors: Askupa Software
 Tags: twitter, tweet, tweets, feed, timeline, widget, customizable, comments, social, social media, shortcode, caching, 
 Requires at least: 3.0
-Tested up to: 4.2.2
-Stable tag: 2.0.7
+Tested up to: 4.2.3
+Stable tag: 2.0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -89,6 +89,11 @@ Since version 1.1, Twitter Feed supports making queries using the new Twitter se
 7. Usage status tracker
 
 == Changelog ==
+
+= 2.0.8 =
+* (FIX) Bug that was causing the widget to break
+* (UPDATE) Improved HTML Accessibility
+* (UPDATE) Tested under WordPress 4.2.3
 
 = 2.0.7 =
 * (FIX) Bug that was causing search results not to be properly stored in cache
@@ -197,9 +202,6 @@ Since version 1.1, Twitter Feed supports making queries using the new Twitter se
 
 == Upgrade Notice ==
 
-= 2.0.7 =
-* Minor bug fixes. Widget renamed - make sure to re-insert widget after updating.
-
 = 2.0.3 =
 * Security update
 
@@ -232,3 +234,9 @@ Since version 1.1, Twitter Feed supports making queries using the new Twitter se
 
 = 1.3.0 =
 * Critical bug fix
+= 2.0.8 =
+* Minor bug fixes
+
+= 2.0.7 =
+* Minor bug fixes. Widget renamed - make sure to re-insert widget after updating
+
