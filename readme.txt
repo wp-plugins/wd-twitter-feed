@@ -3,7 +3,7 @@ Contributors: Askupa Software
 Tags: twitter, tweet, tweets, feed, timeline, widget, customizable, comments, social, social media, shortcode, caching, 
 Requires at least: 3.0
 Tested up to: 4.3.1
-Stable tag: 2.1.1
+Stable tag: 2.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -89,6 +89,13 @@ Since version 1.1, Twitter Feed supports making queries using the new Twitter se
 7. Usage status tracker
 
 == Changelog ==
+
+= 2.1.2 =
+* (UPDATE) Twitter-API-Exchange version 1.0.4
+* (UPDATE) Changed the 'favorites' start icon to heart (as has been done by Twitter)
+* (FIX) Caching related bug
+* (FIX) Bug that was causing the search resource to show retweets/replies when they are set to off
+* (FIX) Bug that was causing widgets not to show retweet credits
 
 = 2.1.1 =
 * (FIX) Some CSS bugs
